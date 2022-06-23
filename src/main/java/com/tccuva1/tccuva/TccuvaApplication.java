@@ -1,0 +1,13 @@
+package com.tccuva1.tccuva;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TccuvaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TccuvaApplication.class, args);
+	}
+
+}
