@@ -13,7 +13,7 @@ public class TccuvaApplication {
 	@GetMapping("/")
 	String home(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 		model.addAttribute("name", name);
-		return "Hello World!";
+		return "";
 	}
 	
 	public static void main(String[] args) {
