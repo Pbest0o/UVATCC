@@ -8,7 +8,7 @@ public class WelcomeController {
 
     @RequestMapping("/hello")
     public String welcome(){
-        return "viewpage";
+        return "hello";
     }
 
     @RequestMapping("/helloagain")
