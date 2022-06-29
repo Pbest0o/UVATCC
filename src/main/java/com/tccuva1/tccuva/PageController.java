@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 
     @RequestMapping("/lead")
-    public String lead(){
+    public String lead() throws ClassNotFoundException{
 
         DatabaseConnection.createConnection();
         return "lead";
