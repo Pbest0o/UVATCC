@@ -34,7 +34,7 @@ public class DatabaseConnection {
             resultSet = statement.executeQuery(selectSql);
 
             while(resultSet.next()){
-                System.out.println(resultSet.getString("\"Nome\""));
+                System.out.println(resultSet.getString(0));
 
                 
             }
