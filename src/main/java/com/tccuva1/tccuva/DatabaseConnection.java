@@ -8,8 +8,7 @@ public class DatabaseConnection {
 
 
     public static Connection createConnection() throws ClassNotFoundException, URISyntaxException{
-
-        try {
+         try {
 
             URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
@@ -24,6 +23,21 @@ public class DatabaseConnection {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static void makeQuery() throws ClassNotFoundException, URISyntaxException{
+        ResultSet resultSet = null;
+        try {
+            Connection c = DatabaseConnection.createConnection();
+            Statement statement = c.createStatement();
+            String selectSql = "SELECT TOP 10 Title, FirstName, LastName from SalesLT.Customer";
+            resultSet = statement.executeQuery(selectSql);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+
 
     }
     

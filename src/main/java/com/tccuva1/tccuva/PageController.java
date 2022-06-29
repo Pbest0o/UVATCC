@@ -11,7 +11,8 @@ public class PageController {
     @RequestMapping("/lead")
     public String lead() throws ClassNotFoundException, URISyntaxException{
 
-        DatabaseConnection.createConnection();
+        //DatabaseConnection.createConnection();
+        DatabaseConnection.makeQuery();
         return "lead";
     }
 
