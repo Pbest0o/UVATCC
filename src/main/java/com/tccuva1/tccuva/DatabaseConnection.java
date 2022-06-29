@@ -30,8 +30,14 @@ public class DatabaseConnection {
         try {
             Connection c = DatabaseConnection.createConnection();
             Statement statement = c.createStatement();
-            String selectSql = "SELECT Name from SalesLT.Customer";
+            String selectSql = "Select \"Nome\" from public.\"Lead\"" ;
             resultSet = statement.executeQuery(selectSql);
+
+            while(resultSet.next()){
+                System.out.println(resultSet.getString("\"Nome\""));
+
+                
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
