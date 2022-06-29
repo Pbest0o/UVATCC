@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WelcomeController {
 
     @RequestMapping("/lead")
-    public String welcome(){
+    public String lead(){
         return "lead";
     }
 
     @RequestMapping("/cliente")
-    public String display(){
+    public String cliente(){
         return "cliente";
     }
 
     @RequestMapping("/venda")
-    public String welcome(){
+    public String venda(){
         return "venda";
     }
 
     @RequestMapping("/atendimento")
-    public String welcome(){
+    public String atendimento(){
         return "atendimento";
     }
     
