@@ -12,7 +12,7 @@ public class DatabaseConnection {
         props.setProperty("password","45a31ccead123ab78ba6ef0a719744999157d94ef5c0ea69703c05d81095fc62");
         props.setProperty("ssl","true");
         try {
-            Class.forName("org.postgresql.Driver");
+            //Class.forName("org.postgresql.Driver");
             Connection conn = DriverManager.getConnection(url, props);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
