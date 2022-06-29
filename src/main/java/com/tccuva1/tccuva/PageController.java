@@ -8,6 +8,8 @@ public class PageController {
 
     @RequestMapping("/lead")
     public String lead(){
+
+        DatabaseConnection.createConnection();
         return "lead";
     }
 
