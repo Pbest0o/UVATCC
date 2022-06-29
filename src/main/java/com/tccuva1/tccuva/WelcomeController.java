@@ -11,9 +11,19 @@ public class WelcomeController {
         return "lead";
     }
 
-    @RequestMapping("/helloagain")
+    @RequestMapping("/cliente")
     public String display(){
-        return "final";
+        return "cliente";
+    }
+
+    @RequestMapping("/venda")
+    public String welcome(){
+        return "venda";
+    }
+
+    @RequestMapping("/atendimento")
+    public String welcome(){
+        return "atendimento";
     }
     
 }
