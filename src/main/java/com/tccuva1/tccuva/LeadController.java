@@ -15,7 +15,7 @@ public class LeadController {
         try {
             resultSet = DatabaseConnection.makeQuery("SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\";");
 
-            System.out.println("Here: " + resultSet.getMetaData());
+            System.out.println("Here 1: " + resultSet.getString(1));
 
             while(resultSet.next()){
                 leads.add( new Lead(resultSet.getString(1), resultSet.getString(2), 
