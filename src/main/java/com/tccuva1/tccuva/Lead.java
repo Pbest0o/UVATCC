@@ -1,4 +1,4 @@
-package com;
+package com.tccuva1.tccuva;
 
 public class Lead {
 
