@@ -23,6 +23,7 @@ public class PageController {
         myList.add("Teste 1");
         myList.add("Teste 2");
         myList.add("Teste 3");
+        myList.add("Teste 4");
 
         model.addAttribute("list", myList);
 
