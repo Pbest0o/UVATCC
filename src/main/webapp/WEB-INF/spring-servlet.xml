@@ -42,6 +42,6 @@
 		<!-- NOTE 'order' and 'viewNames' are optional -->
 		<property name="order" value="1" />
 		<property name="viewNames" value="*.html,*.xhtml" />
-	  </bean>
+	</bean>
 
 </beans>
