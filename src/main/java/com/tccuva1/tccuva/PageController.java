@@ -3,16 +3,19 @@ package com.tccuva1.tccuva;
 import java.net.URISyntaxException;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
 
     @RequestMapping("/lead")
-    public String lead() throws ClassNotFoundException, URISyntaxException{
+    public String lead(ModelMap model) throws ClassNotFoundException, URISyntaxException{
 
         //DatabaseConnection.createConnection();
-        DatabaseConnection.makeQuery();
+        //DatabaseConnection.makeQuery();
+        model.addAttribute("codigo", "codigo");
+
         return "lead";
     }
 
