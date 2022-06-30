@@ -48,12 +48,14 @@
 			<th scope="col">Nome</th>
 			<th scope="col">Email</th>
 			<th scope="col">Canal</th>
-			<th scope="col"></th>
+			
 		  </tr>
 		</thead>
 
 		<tbody>
 			<tr th:each="ls : ${list}">
+				<td th:text="${ls}">Name</td>
+				<td th:text="${ls}">Position</td>
 				<td th:text="${ls}">Name</td>
 				<td th:text="${ls}">Position</td>
 			</tr>
