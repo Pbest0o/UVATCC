@@ -51,6 +51,14 @@
 			<th scope="col"></th>
 		  </tr>
 		</thead>
+
+		<tbody>
+			<tr th:each="ls : ${list}">
+				<td th:text="${ls}">Name</td>
+				<td th:text="${ls}">Position</td>
+			</tr>
+		</tbody>
+		<!--
 		<tbody>
 		  <tr>
 			<th scope="row">1</th>
@@ -79,6 +87,7 @@
 			</td>
 		  </tr>
 		</tbody>
+		-->
 	  </table>
 	  <br>
 	  <div>

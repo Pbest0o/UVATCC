@@ -1,6 +1,8 @@
 package com.tccuva1.tccuva;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,6 +17,14 @@ public class PageController {
         //DatabaseConnection.createConnection();
         //DatabaseConnection.makeQuery();
         model.addAttribute("codigo", "codigo1");
+
+        List<String> myList = new ArrayList<>();
+
+        myList.add("Teste 1");
+        myList.add("Teste 2");
+        myList.add("Teste 3");
+
+        model.addAttribute("list", myList);
 
         return "lead.html";
     }
