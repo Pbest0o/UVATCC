@@ -1,11 +1,8 @@
 package com.tccuva1.tccuva;
 
-import java.beans.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Cache.Connection;
 
 public class LeadController {
 
@@ -18,7 +15,7 @@ public class LeadController {
         try {
             resultSet = DatabaseConnection.makeQuery("SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\";");
 
-            System.out.println("Here: " + resultSet);
+            System.out.println("Here: " + resultSet.getMetaData());
 
             while(resultSet.next()){
                 leads.add( new Lead(resultSet.getString(1), resultSet.getString(2), 
