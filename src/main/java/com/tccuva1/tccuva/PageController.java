@@ -14,7 +14,7 @@ public class PageController {
 
         //DatabaseConnection.createConnection();
         //DatabaseConnection.makeQuery();
-        model.addAttribute("codigo", "codigo");
+        model.addAttribute("codigo", "codigo1");
 
         return "lead.html";
     }
