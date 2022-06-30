@@ -54,8 +54,10 @@
 
 		<tbody>
 			<tr th:each="ls : ${leadsList}">
-				<td th:text="${ls.name}">Name</td>
-				<td th:text="${ls.email}">Position</td>
+				<td th:text="${ls.cod_lead}">Codigo Lead</td>
+				<td th:text="${ls.name}">Nome</td>
+				<td th:text="${ls.email}">Email</td>
+				<td th:text="${ls.canal}">Canal</td>
 			</tr>
 		</tbody>
 		<!--

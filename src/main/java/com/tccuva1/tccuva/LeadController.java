@@ -24,7 +24,7 @@ public class LeadController {
                 resultSet.getString(5), resultSet.getString(6)));
             }
 
-            System.out.println("LeadController: " + leads);
+            //System.out.println("LeadController: " + leads);
             return leads;
             
         } catch (Exception e) {
