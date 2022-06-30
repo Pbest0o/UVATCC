@@ -54,10 +54,8 @@
 
 		<tbody>
 			<tr th:each="ls : ${list}">
-				<td th:text="${ls}">Name</td>
-				<td th:text="${ls}">Position</td>
-				<td th:text="${ls}">Name</td>
-				<td th:text="${ls}">Position</td>
+				<td th:text="${ls.name}">Name</td>
+				<td th:text="${ls.email}">Position</td>
 			</tr>
 		</tbody>
 		<!--

@@ -18,12 +18,10 @@ public class PageController {
         //DatabaseConnection.makeQuery();
         model.addAttribute("codigo", "codigo1");
 
-        List<String> myList = new ArrayList<>();
+        List<Lead> myList = new ArrayList<>();
 
-        myList.add("Teste 1");
-        myList.add("Teste 2");
-        myList.add("Teste 3");
-        myList.add("Teste 4");
+        myList.add(new Lead("Pedro","test@test.com","","","",""));
+
 
         model.addAttribute("list", myList);
 
