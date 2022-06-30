@@ -13,17 +13,8 @@ public class PageController {
 
     @RequestMapping("/lead")
     public String lead(ModelMap model) throws ClassNotFoundException, URISyntaxException{
-
-        //DatabaseConnection.createConnection();
-        //DatabaseConnection.makeQuery();
-        model.addAttribute("codigo", "codigo1");
-
-        List<Lead> myList = new ArrayList<>();
-
-        myList.add(new Lead("Pedro","test@test.com","","","",""));
-
-
-        model.addAttribute("list", myList);
+        
+        model.addAttribute("leadsList", LeadController.getAllLeads());
 
         return "lead.html";
     }

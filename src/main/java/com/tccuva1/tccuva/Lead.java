@@ -2,12 +2,12 @@ package com.tccuva1.tccuva;
 
 public class Lead {
 
-    private String name;
-    private String email;
-    private String cod_lead;
-    private String idade;
-    private String canal;
-    private String dataCriacao;
+    public String name;
+    public String email;
+    public String cod_lead;
+    public String idade;
+    public String canal;
+    public String dataCriacao;
     
 
     public Lead(String name, String email, String cod_lead, String idade, String canal, String dataCriacao) {
