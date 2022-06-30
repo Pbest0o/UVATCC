@@ -16,11 +16,12 @@
 
 	<!--Add support for conversion, formatting and validation -->
 	<mvc:annotation-driven/>
-
+	<!--
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>	
 	</bean>
+	-->
 
 	<bean id="templateResolver"
 	class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
@@ -35,5 +36,12 @@
 	<property name="templateResolver" ref="templateResolver" />
 	<property name="enableSpringELCompiler" value="true" />
 	</bean>
+
+	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+		<property name="templateEngine" ref="templateEngine" />
+		<!-- NOTE 'order' and 'viewNames' are optional -->
+		<property name="order" value="1" />
+		<property name="viewNames" value="*.html,*.xhtml" />
+	  </bean>
 
 </beans>
