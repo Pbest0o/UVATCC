@@ -19,6 +19,14 @@ public class PageController {
         return "lead";
     }
 
+    @RequestMapping("/test")
+    public String test(ModelMap model) throws ClassNotFoundException, URISyntaxException{
+
+        model.addAttribute("codigo", "codigo");
+
+        return "lead";
+    }
+
     @RequestMapping("/cliente")
     public String cliente(){
         return "cliente";
