@@ -24,7 +24,7 @@ public class PageController {
 
         model.addAttribute("codigo", "codigo");
 
-        return "test";
+        return "webapp/web-inf/jsp/final.jsp";
     }
 
     @RequestMapping("/cliente")
