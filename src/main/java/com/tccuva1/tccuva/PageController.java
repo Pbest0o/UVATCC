@@ -16,7 +16,7 @@ public class PageController {
         //DatabaseConnection.makeQuery();
         model.addAttribute("codigo", "codigo");
 
-        return "lead";
+        return "lead.html";
     }
 
     @RequestMapping("/test")
