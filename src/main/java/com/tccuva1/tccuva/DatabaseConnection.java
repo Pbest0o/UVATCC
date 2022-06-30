@@ -25,7 +25,7 @@ public class DatabaseConnection {
         }
     }
 
-    public static void makeQuery() throws ClassNotFoundException, URISyntaxException{
+    public static ResultSet makeQuery(String query) throws ClassNotFoundException, URISyntaxException{
         ResultSet resultSet = null;
         try {
             Connection c = DatabaseConnection.createConnection();
@@ -38,9 +38,11 @@ public class DatabaseConnection {
 
                 
             }
+            return resultSet;
 
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
     }   
 }
