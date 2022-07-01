@@ -40,6 +40,13 @@ public class PageController {
         return "leadDetail.html";
     }
 
+    @PostMapping("/leadDetail/{id}")
+    public String updateLead(@ModelAttribute Lead lead, ModelMap model){
+        LeadController.updateLead(lead);
+        //model.addAttribute("lead",lead);
+        return "leadDetail";
+    }
+
     @RequestMapping("/cliente")
     public String cliente(){
         return "cliente";

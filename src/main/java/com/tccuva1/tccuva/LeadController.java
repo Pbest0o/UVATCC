@@ -91,14 +91,14 @@ public class LeadController {
     public static Lead updateLead(Lead lead){
 
         try{
-            String updateQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"\';";
+
+            String updateQuery = "UPDATE public.\"Lead\" SET \"Nome\"=\'" + lead.name +"\', \"" +lead.email +"\', \"" +lead.cod_lead+"\', \"" +lead.idade+"\', \"" + lead.canal+ "\' WHERE \"Cod_Lead\"=\'"+ lead.cod_lead+ "\'";
             DatabaseConnection.makeQuery(0,updateQuery);
             return lead;
         } catch(Exception e){
             e.printStackTrace();
             return null;
         }
-        return null;
 
     }
 
