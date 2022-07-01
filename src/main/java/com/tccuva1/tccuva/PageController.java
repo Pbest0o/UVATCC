@@ -27,7 +27,7 @@ public class PageController {
     public String createLead(@ModelAttribute Lead lead, ModelMap model){
 
         model.addAttribute("lead",lead);
-        return "lead";
+        return "leadDetail";
     }
 
     @RequestMapping("/cliente")
