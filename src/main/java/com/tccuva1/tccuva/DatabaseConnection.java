@@ -25,17 +25,27 @@ public class DatabaseConnection {
         }
     }
 
-    public static ResultSet makeQuery(String query) throws ClassNotFoundException, URISyntaxException{
+    public static ResultSet makeQuery(int type,String query) throws ClassNotFoundException, URISyntaxException{
         ResultSet resultSet = null;
+
+        //0 = Insert
+        //1 = Select
         try {
             Connection c = DatabaseConnection.createConnection();
             Statement statement = c.createStatement();
-            resultSet = statement.executeQuery(query);
-            return resultSet;
+            if(type == 0){
+                statement.executeQuery(query);
+                return null;
+            } else if(type == 1){
+                resultSet = statement.executeQuery(query);
+                return resultSet;
+            }
+            
 
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+        return null;
     }   
 }

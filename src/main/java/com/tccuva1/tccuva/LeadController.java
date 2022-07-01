@@ -12,7 +12,7 @@ public class LeadController {
         ResultSet resultSet = null;
         
         try {
-            resultSet = DatabaseConnection.makeQuery("SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\";");
+            resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\";");
 
             resultSet.next();
             System.out.println("Here 1: " + resultSet.getString(1));
@@ -41,11 +41,11 @@ public class LeadController {
             String insertQuery = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \' 1" + lead.name + " \' , \'" + lead.email +" \' ,  "+lead.idade+ "  , \' " + lead.canal + "\' ,current_timestamp);";
             System.out.println("Query: " + insertQuery);
 
-            DatabaseConnection.makeQuery(insertQuery);
+            DatabaseConnection.makeQuery(0,insertQuery);
 
             String selectQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ;";
-            System.out.println("Query: " + selectQuery);
-            resultSet = DatabaseConnection.makeQuery(selectQuery);
+            System.out.println("Select Query: " + selectQuery);
+            resultSet = DatabaseConnection.makeQuery(1,selectQuery);
             resultSet.afterLast();
 
             while(resultSet.previous()){
@@ -72,7 +72,7 @@ public class LeadController {
             String query = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"\';";
             System.out.println("Query: " + query);
 
-            resultSet = DatabaseConnection.makeQuery(query);
+            resultSet = DatabaseConnection.makeQuery(1,query);
 
             while(resultSet.next()){
                 lead = new Lead(resultSet.getString(1), resultSet.getString(2), 
