@@ -6,7 +6,6 @@ import java.util.List;
 
 public class LeadController {
 
-
     public static List <Lead> getAllLeads(){
 
         List <Lead> leads = new ArrayList<>();
@@ -30,25 +29,57 @@ public class LeadController {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        }
-
-
-
-        
+        }        
     }
 
-    public static Boolean createLeads(Lead lead){
+    public static Lead createLead(Lead lead){
         
+        Lead dbLead = null;
+
         try{
+            ResultSet resultSet;
             String query = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \' 1" + lead.name + " \' , \'" + lead.email +" \' ,  "+lead.idade+ "  , \' " + lead.canal + "\' ,current_timestamp);";
             System.out.println("Query: " + query);
 
-            DatabaseConnection.makeQuery(query);
+            resultSet = DatabaseConnection.makeQuery(query);
 
-            return true;
+            System.out.println("ResultSet of Create: " + resultSet.getInt(1));
+
+            while(resultSet.next()){
+                dbLead = new Lead(resultSet.getString(1), resultSet.getString(2), 
+                resultSet.getString(3), resultSet.getString(4), 
+                resultSet.getString(5), resultSet.getString(6));
+            }
+
+            return dbLead;
         } catch(Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
+
+        }
+    }
+
+    public static Lead getLead(String id){
+        
+        Lead lead = null;
+        ResultSet resultSet;
+
+        try{
+            String query = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"\';";
+            System.out.println("Query: " + query);
+
+            resultSet = DatabaseConnection.makeQuery(query);
+
+            while(resultSet.next()){
+                lead = new Lead(resultSet.getString(1), resultSet.getString(2), 
+                resultSet.getString(3), resultSet.getString(4), 
+                resultSet.getString(5), resultSet.getString(6));
+            }
+
+            return lead;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
 
         }
     }

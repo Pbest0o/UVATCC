@@ -24,7 +24,8 @@ public class PageController {
 
     @PostMapping("/lead")
     public String createLead(@ModelAttribute Lead lead, ModelMap model){
-        System.out.println("Criou Lead: " + LeadController.createLeads(lead));
+        System.out.println("Criou Lead: " + LeadController.createLead(lead));
+        
         model.addAttribute("lead",lead);
         return "leadDetail";
     }
