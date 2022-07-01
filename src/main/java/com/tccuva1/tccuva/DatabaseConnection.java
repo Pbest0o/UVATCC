@@ -25,14 +25,16 @@ public class DatabaseConnection {
         }
     }
 
+    // Type Mapping:
+    // 0 = Insert
+    // 1 = Select
     public static ResultSet makeQuery(int type,String query) throws ClassNotFoundException, URISyntaxException{
         ResultSet resultSet = null;
 
-        //0 = Insert
-        //1 = Select
+
         try {
             Connection c = DatabaseConnection.createConnection();
-            Statement statement = c.createStatement();
+            Statement statement = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
             if(type == 0){
                 statement.executeQuery(query);
                 return null;
