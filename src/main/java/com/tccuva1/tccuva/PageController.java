@@ -23,9 +23,8 @@ public class PageController {
     }
 
     @PostMapping("/lead")
-
     public String createLead(@ModelAttribute Lead lead, ModelMap model){
-
+        LeadController.createLeads(lead);
         model.addAttribute("lead",lead);
         return "leadDetail";
     }

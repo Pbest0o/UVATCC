@@ -36,5 +36,18 @@ public class LeadController {
 
         
     }
+
+    public static Boolean createLeads(Lead lead){
+        
+        try{
+            DatabaseConnection.makeQuery("INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES (" + lead.name + ", " + lead.email +", "+lead.idade+ "," + lead.canal + " ,current_timestamp);");
+
+            return true;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+
+        }
+    }
     
 }
