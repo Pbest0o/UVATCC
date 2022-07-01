@@ -34,6 +34,9 @@
 				<a class="nav-link" href="atendimento">Atendimento</a>
 			  </li>
 		  </ul>
+		  <form class="form-inline my-2 my-lg-0">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Criar Lead</button>
+		  </form>
 		</div>
 	  </nav>
 
@@ -59,7 +62,7 @@
 				<td th:text="${ls.name}">Nome</td>
 				<td th:text="${ls.email}">Email</td>
 				<td th:text="${ls.canal}">Canal</td>
-				<td> <a th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}">Detalhes</a></td>
+				<td> <a th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}">Link</a></td>
 
 				
 
@@ -68,7 +71,7 @@
 	  </table>
 	  <br>
 	  <div>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Criar Lead</button>
+		
 
 	  </div>
 
