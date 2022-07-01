@@ -26,15 +26,7 @@ public class PageController {
         
         model.addAttribute("lead", lead);
 
-        return "lead.html";
-    }
-
-    @RequestMapping("/test")
-    public String test(ModelMap model) throws ClassNotFoundException, URISyntaxException{
-
-        model.addAttribute("codigo", "codigo");
-
-        return "webapp/web-inf/jsp/final.jsp";
+        return "cliente";
     }
 
     @RequestMapping("/cliente")
