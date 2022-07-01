@@ -43,7 +43,7 @@ public class LeadController {
             String query = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES (" + lead.name + ", " + lead.email +", "+lead.idade+ "," + lead.canal + " ,current_timestamp);";
             System.out.println("Query: " + query);
 
-            DatabaseConnection.makeQuery("INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES (" + lead.name + ", " + lead.email +", "+lead.idade+ "," + lead.canal + " ,current_timestamp);");
+            DatabaseConnection.makeQuery("INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \"" + lead.name + " \" , \"" + lead.email +" \" , \" "+lead.idade+ " \" , \" " + lead.canal + "\" ,current_timestamp);");
 
             return true;
         } catch(Exception e) {
