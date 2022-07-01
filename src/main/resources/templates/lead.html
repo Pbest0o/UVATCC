@@ -54,7 +54,7 @@
 
 		<tbody>
 			<tr th:each="ls : ${leadsList}">
-				<a th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}"><td th:text="${ls.cod_lead}">Codigo Lead</td></a>
+				<td th:text="${ls.cod_lead}"><a th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}">Codigo Lead</a></td></a>
 				<td th:text="${ls.name}">Nome</td>
 				<td th:text="${ls.email}">Email</td>
 				<td th:text="${ls.canal}">Canal</td>
