@@ -44,7 +44,7 @@ public class PageController {
     public String updateLead(@PathVariable String id,@ModelAttribute Lead lead, ModelMap model){
         LeadController.updateLead(lead,id);
         //model.addAttribute("lead",lead);
-        return "lead";
+        return "leadDetail";
     }
 
     @RequestMapping("/cliente")
