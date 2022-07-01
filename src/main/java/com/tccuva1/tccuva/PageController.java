@@ -22,9 +22,9 @@ public class PageController {
     }
 
     @RequestMapping(value = "/lead",method = RequestMethod.POST)
-    public String createLead(@ModelAttribute Lead lead, ModelMap model){
+    public String createLead( ModelMap model){
         
-        model.addAttribute("lead", lead);
+        //model.addAttribute("lead", lead);
 
         return "lead";
     }
