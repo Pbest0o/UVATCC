@@ -49,7 +49,7 @@ public class PageController {
 
     @GetMapping("/cliente")
     public String cliente(ModelMap model){
-        model.addAttribute("clientList", LeadController.getAllLeads());
+        model.addAttribute("clientList", ClienteController.getAllClientes());
         return "cliente";
     }
 
