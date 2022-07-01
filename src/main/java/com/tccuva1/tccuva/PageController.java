@@ -30,7 +30,7 @@ public class PageController {
         System.out.println("Criou Lead: " + LeadController.createLead(lead).getCod_lead());
 
         model.addAttribute("lead",lead);
-        return "leadDetail";
+        return "leadDetail/12";
     }
 
     @GetMapping("/leadDetail/{id}")
