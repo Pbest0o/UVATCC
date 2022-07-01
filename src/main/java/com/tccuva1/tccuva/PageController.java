@@ -37,7 +37,7 @@ public class PageController {
     public @ResponseBody String leadDetail(@PathVariable String id,ModelMap model){
 
         model.addAttribute("data", id);
-        return "leadDetail";
+        return "leadDetail.html";
     }
 
     @RequestMapping("/cliente")
