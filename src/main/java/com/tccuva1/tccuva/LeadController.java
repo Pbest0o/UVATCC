@@ -38,20 +38,24 @@ public class LeadController {
 
         try{
             ResultSet resultSet;
-            String query = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \' 1" + lead.name + " \' , \'" + lead.email +" \' ,  "+lead.idade+ "  , \' " + lead.canal + "\' ,current_timestamp);";
-            System.out.println("Query: " + query);
+            String insertQuery = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \' 1" + lead.name + " \' , \'" + lead.email +" \' ,  "+lead.idade+ "  , \' " + lead.canal + "\' ,current_timestamp);";
+            System.out.println("Query: " + insertQuery);
 
-            resultSet = DatabaseConnection.makeQuery(query);
+            DatabaseConnection.makeQuery(insertQuery);
 
-            System.out.println("ResultSet of Create: " + resultSet.getInt(1));
+            String selectQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ;";
+            System.out.println("Query: " + selectQuery);
+            resultSet = DatabaseConnection.makeQuery(selectQuery);
+            resultSet.afterLast();
 
-            while(resultSet.next()){
+            while(resultSet.previous()){
                 dbLead = new Lead(resultSet.getString(1), resultSet.getString(2), 
                 resultSet.getString(3), resultSet.getString(4), 
                 resultSet.getString(5), resultSet.getString(6));
+                break;
             }
-
             return dbLead;
+            
         } catch(Exception e) {
             e.printStackTrace();
             return null;
