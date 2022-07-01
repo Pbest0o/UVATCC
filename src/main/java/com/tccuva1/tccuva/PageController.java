@@ -23,10 +23,8 @@ public class PageController {
 
     @RequestMapping(value = "/lead",method = RequestMethod.POST)
     public String createLead( ModelMap model){
-        
-        //model.addAttribute("lead", lead);
 
-        return "cliente";
+        return "leadDetail";
     }
 
     @RequestMapping("/cliente")
