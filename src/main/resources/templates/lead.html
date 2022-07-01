@@ -48,6 +48,7 @@
 			<th scope="col">Nome</th>
 			<th scope="col">Email</th>
 			<th scope="col">Canal</th>
+			<th scope="col">test</th>
 			
 		  </tr>
 		</thead>
@@ -58,6 +59,7 @@
 				<td th:text="${ls.name}">Nome</td>
 				<td th:text="${ls.email}">Email</td>
 				<td th:text="${ls.canal}">Canal</td>
+				<td> <a th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}">Link</a></td>
 
 				
 
