@@ -93,6 +93,7 @@ public class LeadController {
         try{
 
             String updateQuery = "UPDATE public.\"Lead\" SET \"Nome\"=\'" + lead.name +"\', \"" +lead.email +"\', \"" +lead.cod_lead+"\', \"" +lead.idade+"\', \"" + lead.canal+ "\' WHERE \"Cod_Lead\"=\'"+ lead.cod_lead+ "\'";
+            System.out.println("Update Query: " + updateQuery);
             DatabaseConnection.makeQuery(0,updateQuery);
             return lead;
         } catch(Exception e){
