@@ -47,8 +47,9 @@ public class PageController {
         return "leadDetail";
     }
 
-    @RequestMapping("/cliente")
-    public String cliente(){
+    @GetMapping("/cliente")
+    public String cliente(ModelMap model){
+        model.addAttribute("clientList", LeadController.getAllLeads());
         return "cliente";
     }
 
