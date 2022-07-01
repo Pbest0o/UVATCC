@@ -6,8 +6,10 @@ import java.util.Properties;
 
 public class DatabaseConnection {
 
+    public static Connection connection;
 
-    public static Connection createConnection() throws ClassNotFoundException, URISyntaxException{
+
+    public static void createConnection() throws ClassNotFoundException, URISyntaxException{
          try {
 
             URI dbUri = new URI(System.getenv("DATABASE_URL"));
@@ -16,12 +18,11 @@ public class DatabaseConnection {
             String password = dbUri.getUserInfo().split(":")[1];
             String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
         
-            return DriverManager.getConnection(dbUrl, username, password);
+            connection = DriverManager.getConnection(dbUrl, username, password);
             
         } catch (SQLException e) {
 
             e.printStackTrace();
-            return null;
         }
     }
 
@@ -30,11 +31,15 @@ public class DatabaseConnection {
     // 1 = Select
     public static ResultSet makeQuery(int type,String query) throws ClassNotFoundException, URISyntaxException{
         ResultSet resultSet = null;
+        Connection c;
 
 
         try {
-            Connection c = DatabaseConnection.createConnection();
-            Statement statement = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            if(connection == null){
+                DatabaseConnection.createConnection();
+            }
+            
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
             if(type == 0){
                 statement.executeQuery(query);
                 return null;
