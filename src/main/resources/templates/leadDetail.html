@@ -18,10 +18,10 @@
 			  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="lead">Lead</a>
+			  <a class="nav-link active" href="lead">Lead</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" href="cliente">Cliente</a>
+				<a class="nav-link " href="cliente">Cliente</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="venda">Venda</a>
@@ -35,7 +35,7 @@
 
       <div>
 
-        <p th:text="'id: ' + ${data}" />
+        <p th:text="'id: ' + ${data.name}" />
 
         <p></p>
       </div>
