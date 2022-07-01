@@ -23,7 +23,7 @@ public class PageController {
     @PostMapping("/lead")
     public String createLead(@ModelAttribute Lead lead, ModelMap model){
         
-        model.addAttribute("leadsList", LeadController.getAllLeads());
+        model.addAttribute("lead", lead);
 
         return "lead.html";
     }
