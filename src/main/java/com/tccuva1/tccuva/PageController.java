@@ -30,6 +30,11 @@ public class PageController {
         return "leadDetail";
     }
 
+    @GetMapping("/leadDetail")
+    public String leadDetail(){
+        return "leadDetail";
+    }
+
     @RequestMapping("/cliente")
     public String cliente(){
         return "cliente";
