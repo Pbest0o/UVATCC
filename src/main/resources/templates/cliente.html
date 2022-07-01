@@ -64,7 +64,7 @@
 				<td th:text="${cl.cod_cliente}" >Codigo Lead</td></a>
 				<td th:text="${cl.name}">Nome</td>
 				<td th:text="${cl.email}">Email</td>
-				
+				<td> <a th:href="@{/clienteDetail/{id}(id=${cl.cod_cliente})}">Link</a></td>
 
 			</tr>
 		</tbody>

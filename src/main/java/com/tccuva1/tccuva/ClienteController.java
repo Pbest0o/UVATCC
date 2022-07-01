@@ -73,7 +73,7 @@ public class ClienteController {
         ResultSet resultSet;
 
         try{
-            String query = "SELECT \"Cod_Cliente\", \"Cod_Lead\", \"Nome\", \"Email\", \"Idade\", \"Qtd_Compras\", \"Qtd_Atendimentos\", \"Data_Criacao\"FROM public.\"Cliente\";";
+            String query = "SELECT \"Cod_Cliente\", \"Cod_Lead\", \"Nome\", \"Email\", \"Idade\", \"Qtd_Compras\", \"Qtd_Atendimentos\", \"Data_Criacao\"FROM public.\"Cliente\" WHERE \"Cod_Cliente\" =" +id + ";";
             System.out.println("Query: " + query);
 
             resultSet = DatabaseConnection.makeQuery(1,query);
