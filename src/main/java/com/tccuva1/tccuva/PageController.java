@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,10 +33,10 @@ public class PageController {
         return "leadDetail";
     }
 
-    @GetMapping("/leadDetail")
-    public @ResponseBody String leadDetail(@RequestParam("data") String itemid,ModelMap model){
+    @GetMapping("/leadDetail/{id}")
+    public @ResponseBody String leadDetail(@PathVariable String id,ModelMap model){
 
-        model.addAttribute("data", itemid);
+        model.addAttribute("data", id);
         return "leadDetail";
     }
 
