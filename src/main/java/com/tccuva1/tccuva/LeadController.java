@@ -12,7 +12,7 @@ public class LeadController {
         ResultSet resultSet = null;
         
         try {
-            resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\";");
+            resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ORDER BY \"Cod_Lead\" ;");
 
             resultSet.next();
             System.out.println("Here 1: " + resultSet.getString(1));
@@ -87,5 +87,20 @@ public class LeadController {
 
         }
     }
+
+    public static Lead updateLead(Lead lead){
+
+        try{
+            String updateQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"\';";
+            DatabaseConnection.makeQuery(0,updateQuery);
+            return lead;
+        } catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        return null;
+
+    }
+
     
 }
