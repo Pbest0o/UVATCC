@@ -21,7 +21,7 @@ public class PageController {
         return "lead.html";
     }
 
-    @PostMapping("/lead")
+    @RequestMapping(value = "/lead",method = RequestMethod.POST)
     public String createLead(@ModelAttribute Lead lead, ModelMap model){
         
         model.addAttribute("lead", lead);
