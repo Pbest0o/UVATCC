@@ -53,6 +53,13 @@ public class PageController {
         return "cliente";
     }
 
+    @GetMapping("/clientDetail/{id}")
+    public String clientDetail(@PathVariable String id,ModelMap model){
+        Cliente cliente = ClienteController.getCliente(id);
+        model.addAttribute("data", cliente);
+        return "clientDetail";
+    }
+
     @RequestMapping("/venda")
     public String venda(){
         return "venda";

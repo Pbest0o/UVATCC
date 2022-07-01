@@ -6,6 +6,9 @@ import java.util.List;
 
 public class ClienteController {
 
+
+    
+
     public static List <Cliente> getAllClientes(){
 
         List <Cliente> clientes = new ArrayList<>();
@@ -64,24 +67,25 @@ public class ClienteController {
         }
     }
 
-    public static Lead getLead(String id){
+    public static Cliente getCliente(String id){
         
-        Lead lead = null;
+        Cliente cliente = null;
         ResultSet resultSet;
 
         try{
-            String query = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"\';";
+            String query = "SELECT \"Cod_Cliente\", \"Cod_Lead\", \"Nome\", \"Email\", \"Idade\", \"Qtd_Compras\", \"Qtd_Atendimentos\", \"Data_Criacao\"FROM public.\"Cliente\";";
             System.out.println("Query: " + query);
 
             resultSet = DatabaseConnection.makeQuery(1,query);
 
             while(resultSet.next()){
-                lead = new Lead(resultSet.getString(1), resultSet.getString(2), 
+                cliente = new Cliente(resultSet.getString(1), resultSet.getString(2), 
                 resultSet.getString(3), resultSet.getString(4), 
-                resultSet.getString(5), resultSet.getString(6));
+                resultSet.getString(5), resultSet.getString(6), 
+                resultSet.getString(7), resultSet.getString(8));
             }
 
-            return lead;
+            return cliente;
         } catch(Exception e) {
             e.printStackTrace();
             return null;
