@@ -103,5 +103,20 @@ public class LeadController {
 
     }
 
+    public static void deleteLead(String id){
+
+        try{
+
+            String deleteQuery = "DELETE FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"';";
+            
+            
+            System.out.println("Delete Query: " + deleteQuery);
+            DatabaseConnection.makeQuery(0,deleteQuery);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
     
 }
