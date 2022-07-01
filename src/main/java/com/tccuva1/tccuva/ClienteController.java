@@ -15,7 +15,7 @@ public class ClienteController {
             resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Cod_Cliente\", \"Cod_Lead\", \"Nome\", \"Email\", \"Idade\", \"Qtd_Compras\", \"Qtd_Atendimentos\", \"Data_Criacao\" FROM public.\"Cliente\" ORDER BY \"Cod_Cliente\" ;");
 
             resultSet.next();
-            System.out.println("Here 1: " + resultSet.getString(1));
+            System.out.println("Here Cliente: " + resultSet.getString(1));
 
             while(resultSet.next()){
                 clientes.add( new Cliente(resultSet.getString(1), resultSet.getString(2), 
