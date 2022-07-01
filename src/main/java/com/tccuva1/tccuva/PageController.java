@@ -4,13 +4,24 @@ import java.net.URISyntaxException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
 
     @RequestMapping("/lead")
-    public String lead(ModelMap model) throws ClassNotFoundException, URISyntaxException{
+    public String lead(ModelMap model){
+        
+        model.addAttribute("leadsList", LeadController.getAllLeads());
+        model.addAttribute("newLead", new Lead("", "", "", "", "", ""));
+
+        return "lead.html";
+    }
+
+    @PostMapping("/lead")
+    public String createLead(@ModelAttribute Lead lead, ModelMap model){
         
         model.addAttribute("leadsList", LeadController.getAllLeads());
 
