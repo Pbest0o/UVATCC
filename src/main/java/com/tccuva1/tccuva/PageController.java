@@ -34,7 +34,7 @@ public class PageController {
     }
 
     @GetMapping("/leadDetail/{id}")
-    public @ResponseBody String leadDetail(@PathVariable String id,ModelMap model){
+    public String leadDetail(@PathVariable String id,ModelMap model){
 
         model.addAttribute("data", id);
         return "leadDetail.html";
