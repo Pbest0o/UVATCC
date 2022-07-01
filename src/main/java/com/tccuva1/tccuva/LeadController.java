@@ -88,11 +88,11 @@ public class LeadController {
         }
     }
 
-    public static Lead updateLead(Lead lead){
+    public static Lead updateLead(Lead lead,String id){
 
         try{
 
-            String updateQuery = "UPDATE public.\"Lead\" SET \"Nome\"=\'" + lead.name +"\', \"" +lead.email +"\', \"" +lead.cod_lead+"\', \"" +lead.idade+"\', \"" + lead.canal+ "\' WHERE \"Cod_Lead\"=\'"+ lead.cod_lead+ "\'";
+            String updateQuery = "UPDATE public.\"Lead\" SET \"Nome\"=\'" + lead.name +"\', \"" +lead.email +"\', \"" +lead.cod_lead+"\', \"" +lead.idade+"\', \"" + lead.canal+ "\' WHERE \"Cod_Lead\"=\'"+ id+ "\'";
             System.out.println("Update Query: " + updateQuery);
             DatabaseConnection.makeQuery(0,updateQuery);
             return lead;

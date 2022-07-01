@@ -41,8 +41,8 @@ public class PageController {
     }
 
     @PostMapping("/leadDetail/{id}")
-    public String updateLead(@ModelAttribute Lead lead, ModelMap model){
-        LeadController.updateLead(lead);
+    public String updateLead(@PathVariable String id,@ModelAttribute Lead lead, ModelMap model){
+        LeadController.updateLead(lead,id);
         //model.addAttribute("lead",lead);
         return "leadDetail";
     }
