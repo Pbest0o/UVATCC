@@ -12,7 +12,7 @@ public class LeadController {
         ResultSet resultSet = null;
         
         try {
-            resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ORDER BY \"Cod_Lead\" ;");
+            resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ORDER BY \"Cod_Lead\" DESC;");
 
             resultSet.next();
             System.out.println("Here 1: " + resultSet.getString(1));
