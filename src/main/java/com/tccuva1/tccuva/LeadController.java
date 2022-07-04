@@ -40,7 +40,7 @@ public class LeadController {
     }
 
     @PostMapping("/createLead")
-    public static Lead createLead(@RequestBody Lead lead){
+    public static String createLead(@RequestBody Lead lead){
         
         Lead dbLead = null;
 
@@ -62,11 +62,11 @@ public class LeadController {
                 resultSet.getString(5), resultSet.getString(6));
                 break;
             }
-            return dbLead;
+            return dbLead.getCod_lead();
             
         } catch(Exception e) {
             e.printStackTrace();
-            return null;
+            return "-1";
 
         }
     }
