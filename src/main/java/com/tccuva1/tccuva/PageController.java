@@ -49,6 +49,7 @@ public class PageController {
     }
 
     @GetMapping("/test")
+    @ResponseBody
     public String testPost(){
         
         return "Funcionou";
