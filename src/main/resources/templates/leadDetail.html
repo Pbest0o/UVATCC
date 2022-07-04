@@ -76,14 +76,15 @@
 		  var xhttp = new XMLHttpRequest();
 		  xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-			  alert(xhttp.response);
+				console.log(xhttp.response);
+				//alert(xhttp.response);
 			}
 		  };
 		  xhttp.open("POST", "updateLead", true);
 		  xhttp.setRequestHeader("Content-Type", "application/json");
 		  xhttp.send(leadData);
 
-		  console.log(xhttp.response);
+		  
 
 		  //alert();
 
