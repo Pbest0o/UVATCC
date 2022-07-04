@@ -46,20 +46,7 @@
 		</div>
 	  </nav>
 
-	  <script>
-		function load() {
-		  var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-			  alert(xhttp.response);
-			}
-		  };
-		  xhttp.open("POST", "test", true);
-		  xhttp.send();
 
-		  console.log(xhttp.response);
-		}
-		</script>
 	  
 
 	  <!-- Fim Navbar-->
@@ -112,19 +99,19 @@
 					
 					<div class="form-group">
 					  <label for="exampleInputPassword1">Nome</label>
-					  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" th:field="${lead.name}">
+					  <input type="text" class="form-control" id="leadName" placeholder="" th:field="${lead.name}">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Email</label>
-						<input type="text" class="form-control" id="exampleInputPassword1" placeholder="" th:field="${lead.email}">
+						<input type="text" class="form-control" id="leadEmail" placeholder="" th:field="${lead.email}">
 					  </div>
 					  <div class="form-group">
 						<label for="exampleInputPassword1">Idade</label>
-						<input type="text" class="form-control" id="exampleInputPassword1" placeholder="" th:field="${lead.idade}">
+						<input type="text" class="form-control" id="leadIdade" placeholder="" th:field="${lead.idade}">
 					  </div>
 					  <div class="form-group">
 						<label for="exampleInputPassword1">Canal</label>
-						<input type="text" class="form-control" id="exampleInputPassword1" placeholder="" th:field="${lead.canal}">
+						<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${lead.canal}">
 					  </div>
 					  <input type="submit" value="Criar" />
 				</form>
@@ -133,6 +120,27 @@
   </div>
   </div>
 	  <br>
+
+	  <script>
+		
+		function load() {
+			/*
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			  alert(xhttp.response);
+			}
+		  };
+		  xhttp.open("POST", "test", true);
+		  xhttp.send();
+
+		  console.log(xhttp.response);
+		  */
+		  alert(form.querySelector('input[id="leadName"]'));
+
+		}
+		</script>
+
 
 	  <!-- Fim Table-->
 
