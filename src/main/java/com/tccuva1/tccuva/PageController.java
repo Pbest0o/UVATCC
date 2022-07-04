@@ -27,10 +27,10 @@ public class PageController {
 
     @PostMapping("/lead")
     public String createLead(@ModelAttribute Lead lead, ModelMap model){
-        System.out.println("Criou Lead: " + LeadController.createLead(lead).getCod_lead());
+        String idLead = LeadController.createLead(lead).getCod_lead();
 
         model.addAttribute("lead",lead);
-        return "leadDetail";
+        return "leadDetail/"+ idLead;
     }
 
 
