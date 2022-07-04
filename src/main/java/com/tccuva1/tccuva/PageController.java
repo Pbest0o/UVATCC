@@ -30,7 +30,7 @@ public class PageController {
         String idLead = LeadController.createLead(lead).getCod_lead();
 
         model.addAttribute("lead",lead);
-        return "leadDetail/"+ idLead;
+        return "lead";
     }
 
 
