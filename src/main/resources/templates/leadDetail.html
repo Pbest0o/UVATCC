@@ -60,8 +60,23 @@
 		  <button type="button" class="btn btn-primary" onclick="atualizarLead()">Salvar</button>
 	</form>
 
+
+
+	<div class="toast" id="myToast">
+        <div class="toast-header">
+            <strong class="me-auto"><i class="bi-gift-fill"></i> We miss you!</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            It's been a long time since you visited us. We've something special for you. <a href="#">Click here!</a>
+        </div>
+    </div>
+
+
+
 	<script>
-		
+
 		function atualizarLead() {
 
 		  var leadName = document.querySelector("input[id='leadName']").value;
@@ -77,6 +92,7 @@
 		  xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				alert("Lead Atualizado");
+				$("#myToast").toast("show");
 				console.log(xhttp.response);
 			}
 		  };
