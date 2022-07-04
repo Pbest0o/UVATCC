@@ -39,16 +39,12 @@ public class LeadController {
         }        
     }
 
-    @PostMapping("/createLeadTest")
-    @ResponseBody
-    public static String testLead(@RequestBody String lead){
-        return "Funcionou";
-    }
-
     @PostMapping("/createLead")
     @ResponseBody
-    public static String createLead(@RequestBody String nome, @RequestBody String email,
-                                    @RequestBody String idade,@RequestBody String canal ){
+    public static String createLead(@RequestBody String nome ){
+        String email = null;
+        String idade = null;
+        String canal = null;
         
         Lead dbLead = null;
 
