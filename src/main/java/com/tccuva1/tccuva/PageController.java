@@ -49,13 +49,6 @@ public class PageController {
         return "leadDetail";
     }
 
-    @PostMapping("/test")
-    @ResponseBody
-    public String testPost(){
-        
-        return "Funcionou 2";
-    }
-
     @GetMapping("/cliente")
     public String cliente(ModelMap model){
         model.addAttribute("clientList", ClienteController.getAllClientes());

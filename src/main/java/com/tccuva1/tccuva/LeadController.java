@@ -4,6 +4,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+@Controller
 public class LeadController {
 
     public static List <Lead> getAllLeads(){
@@ -32,7 +39,8 @@ public class LeadController {
         }        
     }
 
-    public static Lead createLead(Lead lead){
+    @PostMapping("/createLead")
+    public static Lead createLead(@RequestBody Lead lead){
         
         Lead dbLead = null;
 
