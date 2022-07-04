@@ -40,6 +40,7 @@ public class LeadController {
     }
 
     @PostMapping("/createLeadTest")
+    @ResponseBody
     public static String testLead(@RequestBody String lead){
         return "Funcionou";
     }
