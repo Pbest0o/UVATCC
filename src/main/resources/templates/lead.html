@@ -140,6 +140,7 @@
 			}
 		  };
 		  xhttp.open("POST", "createLead", true);
+		  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		  xhttp.send(leadData);
 
 		  console.log(xhttp.response);
