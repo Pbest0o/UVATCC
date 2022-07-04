@@ -53,31 +53,34 @@
 
 	  <!-- Inicio Table-->
 
-	  <table class="table table-striped">
-		<thead>
-		  <tr>
-			<th scope="col">Código</th>
-			<th scope="col">Nome</th>
-			<th scope="col">Email</th>
-			<th scope="col">Canal</th>
-			<th scope="col"></th>
-			
-		  </tr>
-		</thead>
-
-		<tbody>
-			<tr th:each="ls : ${leadsList}">
-				<td th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}" th:text="${ls.cod_lead}" >Codigo Lead</td></a>
-				<td th:text="${ls.name}">Nome</td>
-				<td th:text="${ls.email}">Email</td>
-				<td th:text="${ls.canal}">Canal</td>
-				<td> <a th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}">Link</a></td>
-
+	  <div>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th scope="col">Código</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Email</th>
+				<th scope="col">Canal</th>
+				<th scope="col"></th>
 				
-
 			</tr>
-		</tbody>
-	  </table>
+			</thead>
+
+			<tbody>
+				<tr th:each="ls : ${leadsList}">
+					<td th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}" th:text="${ls.cod_lead}" >Codigo Lead</td></a>
+					<td th:text="${ls.name}">Nome</td>
+					<td th:text="${ls.email}">Email</td>
+					<td th:text="${ls.canal}">Canal</td>
+					<td> <a th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}">Link</a></td>
+
+					
+
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	  
 	  <br>
 	  <div>
 		
