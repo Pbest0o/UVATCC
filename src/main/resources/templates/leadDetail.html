@@ -60,7 +60,7 @@
 			<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${data.canal}">
 		  </div>
 		  <button type="button" class="btn btn-primary" onclick="atualizarLead()">Salvar</button>
-		  <button type="button" class="btn btn-danger" onclick="atualizarLead()">Deletar</button>
+		  <button type="button" class="btn btn-danger" onclick="deletarLead()">Deletar</button>
 	</form>
 
 
@@ -108,7 +108,7 @@
 
 		}
 
-		function atualizarLead() {
+		function deletarLead() {
 			var leadCod = document.querySelector("input[id='leadCod']").value;
 
 			var leadData = '{"id":"' +leadCod+'"}';
