@@ -1,6 +1,6 @@
 package com.tccuva1.tccuva;
 
-import java.net.URISyntaxException;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller
 public class PageController {
+
+    
 
     @GetMapping("/lead")
     public String lead( ModelMap model){
@@ -33,11 +33,15 @@ public class PageController {
         return "leadDetail";
     }
 
+
+
+
+
     @GetMapping("/leadDetail/{id}")
     public String leadDetail(@PathVariable String id,ModelMap model){
         Lead lead = LeadController.getLead(id);
         model.addAttribute("data", lead);
-        return "leadDetail.html";
+        return "leadDetail";
     }
 
     @PostMapping("/leadDetail/{id}")
@@ -46,6 +50,10 @@ public class PageController {
         //model.addAttribute("lead",lead);
         return "leadDetail";
     }
+
+
+
+
 
     @GetMapping("/cliente")
     public String cliente(ModelMap model){

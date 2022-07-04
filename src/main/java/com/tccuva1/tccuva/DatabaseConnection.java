@@ -2,7 +2,6 @@ package com.tccuva1.tccuva;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
-import java.util.Properties;
 
 public class DatabaseConnection {
 
@@ -31,8 +30,6 @@ public class DatabaseConnection {
     // 1 = Select
     public static ResultSet makeQuery(int type,String query) throws ClassNotFoundException, URISyntaxException{
         ResultSet resultSet = null;
-        Connection c;
-
 
         try {
             if(connection == null){
@@ -41,7 +38,7 @@ public class DatabaseConnection {
             
             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
             if(type == 0){
-                statement.executeQuery(query);
+                statement.executeUpdate(query);
                 return null;
             } else if(type == 1){
                 resultSet = statement.executeQuery(query);
