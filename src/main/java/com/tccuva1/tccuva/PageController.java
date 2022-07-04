@@ -49,7 +49,7 @@ public class PageController {
         return "leadDetail";
     }
 
-    @GetMapping("/test")
+    @PostMapping("/test")
     @ResponseBody
     public String testPost(){
         
