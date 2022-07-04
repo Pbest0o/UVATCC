@@ -40,7 +40,7 @@
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 				Criar Lead
 			  </button>
-			  <button type="button" class="btn btn-primary" onclick="load()">Request data</button>
+			  
 
 			</form>
 		</div>
@@ -113,7 +113,7 @@
 						<label for="exampleInputPassword1">Canal</label>
 						<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${lead.canal}">
 					  </div>
-					  <input type="submit" value="Criar" />
+					  <button type="button" class="btn btn-primary" onclick="load()">Request data</button>
 				</form>
 		</div>
 		</div>
@@ -137,6 +137,7 @@
 		  xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 			  alert(xhttp.response);
+			  window.location.replace("/leadDetail/" + xhttp.response);
 			}
 		  };
 		  xhttp.open("POST", "createLead", true);
