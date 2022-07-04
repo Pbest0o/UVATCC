@@ -53,7 +53,7 @@ public class PageController {
     @ResponseBody
     public String testPost(){
         
-        return "Funcionou";
+        return "Funcionou 2";
     }
 
     @GetMapping("/cliente")
