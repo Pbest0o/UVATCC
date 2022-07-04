@@ -48,7 +48,7 @@ public class PageController {
         return "leadDetail";
     }
 
-    @PostMapping("/test")
+    @GetMapping("/test")
     public String testPost(){
         
         return "Funcionou";
