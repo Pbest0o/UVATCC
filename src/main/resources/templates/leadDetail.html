@@ -117,7 +117,7 @@
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
-					alert("Lead Deletado");
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/updateLead");
 				}
 			};
 			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/deleteLead", true);
