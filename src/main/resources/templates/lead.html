@@ -124,19 +124,6 @@
 	  <script>
 		
 		function load() {
-			/*
-		  var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-			  alert(xhttp.response);
-			}
-		  };
-		  xhttp.open("POST", "test", true);
-		  xhttp.send();
-
-		  console.log(xhttp.response);
-		  */
-		  
 
 		  var leadName = document.querySelector("input[id='leadName']").value;
 		  var leadEmail = document.querySelector("input[id='leadEmail']").value;
@@ -146,7 +133,16 @@
 		  var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'"}';
 		  console.log(leadData); 
 
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			  alert(xhttp.response);
+			}
+		  };
+		  xhttp.open("POST", "test", true);
+		  xhttp.send(leadData);
 
+		  console.log(xhttp.response);
 
 		  //alert();
 
