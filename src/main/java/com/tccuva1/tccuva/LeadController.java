@@ -3,6 +3,7 @@ package com.tccuva1.tccuva;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,10 +42,12 @@ public class LeadController {
 
     @PostMapping("/createLead")
     @ResponseBody
-    public static String createLead(@RequestBody String nome ,@RequestBody String email){
-        //String email = null;
-        String idade = null;
-        String canal = null;
+    public static String createLead(@RequestBody Map <String,String> json){
+        
+        String nome = json.get("nome");
+        String email = json.get("email");
+        String idade = json.get("idade");
+        String canal = json.get("canal");
         
         Lead dbLead = null;
 
