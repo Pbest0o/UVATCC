@@ -47,20 +47,22 @@
 
 	  <div class="listContainer">
 		<div class="listContainerBody">
-			<div class="row">
-				<div class="col-1">
-					<img src="/img/leadIcon.png"/>
+			<div class="listContainerHeader">
+				<div class="row">
+					
+					
+				  <div class="col-8">
+					<p style="margin-bottom: 0; font-size:15px;">Leads</p>
+					<p style="margin-bottom: 0; font-weight:800">Vistos Recentemente</p>
+				  </div>
+				  <div class="col-4">
+					<button type="button" class="btn btn-info" onclick="atualizarLead()" style="float:right;">Salvar</button>
+					<button type="button" class="btn btn-danger" onclick="deletarLead()" style="float:right;">Deletar</button>
+				  </div>
 				</div>
-				
-			  <div class="col-7">
-				<p style="margin-bottom: 0; font-size:15px;">Leads</p>
-				<p style="margin-bottom: 0; font-weight:800">Vistos Recentemente</p>
-			  </div>
-			  <div class="col-4">
-				<button type="button" class="btn btn-primary" onclick="atualizarLead()">Salvar</button>
-				<button type="button" class="btn btn-danger" onclick="deletarLead()">Deletar</button>
-			  </div>
+
 			</div>
+
 
 		<form action="#" th:object="${data}" method="post">
 			
