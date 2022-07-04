@@ -46,13 +46,13 @@ public class LeadController {
     }
 
     @PostMapping("/createLead")
-    public static String createLead(@RequestBody Lead lead){
+    public static String createLead(@RequestBody String nome,String email,String idade,String canal ){
         
         Lead dbLead = null;
 
         try{
             ResultSet resultSet;
-            String insertQuery = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \'" + lead.name + " \' , \'" + lead.email +" \' ,  "+lead.idade+ "  , \' " + lead.canal + "\' ,current_timestamp);";
+            String insertQuery = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \'" + nome + " \' , \'" + email +" \' ,  "+idade+ "  , \' " + canal + "\' ,current_timestamp);";
             System.out.println("Query: " + insertQuery);
 
             DatabaseConnection.makeQuery(0,insertQuery);
