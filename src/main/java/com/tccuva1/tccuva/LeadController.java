@@ -40,6 +40,31 @@ public class LeadController {
         }        
     }
 
+    public static Lead getLead(String id){
+        
+        Lead lead = null;
+        ResultSet resultSet;
+
+        try{
+            String query = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"\';";
+            System.out.println("Query: " + query);
+
+            resultSet = DatabaseConnection.makeQuery(1,query);
+
+            while(resultSet.next()){
+                lead = new Lead(resultSet.getString(1), resultSet.getString(2), 
+                resultSet.getString(3), resultSet.getString(4), 
+                resultSet.getString(5), resultSet.getString(6));
+            }
+
+            return lead;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+
+        }
+    }
+
     @PostMapping("/createLead")
     @ResponseBody
     public static String createLead(@RequestBody Map <String,String> json){
@@ -78,42 +103,26 @@ public class LeadController {
         }
     }
 
-    public static Lead getLead(String id){
-        
-        Lead lead = null;
-        ResultSet resultSet;
 
-        try{
-            String query = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"\';";
-            System.out.println("Query: " + query);
+    @PostMapping("/updateLead")
+    @ResponseBody
+    public static Boolean updateLead(@RequestBody Map <String,String> json){
 
-            resultSet = DatabaseConnection.makeQuery(1,query);
-
-            while(resultSet.next()){
-                lead = new Lead(resultSet.getString(1), resultSet.getString(2), 
-                resultSet.getString(3), resultSet.getString(4), 
-                resultSet.getString(5), resultSet.getString(6));
-            }
-
-            return lead;
-        } catch(Exception e) {
-            e.printStackTrace();
-            return null;
-
-        }
-    }
-
-    public static Lead updateLead(Lead lead,String id){
+        String nome = json.get("nome");
+        String email = json.get("email");
+        String idade = json.get("idade");
+        String canal = json.get("canal");
+        String codLead = json.get("codLead");
 
         try{
 
-            String updateQuery = "UPDATE public.\"Lead\" SET \"Nome\"=\'" + lead.name +"\',\"Email\" = \'" +lead.email +"\', \"Idade\" = " +lead.idade+", \"Canal\" =\'" + lead.canal+ "\' WHERE \"Cod_Lead\"=\'"+ id+ "\';";
+            String updateQuery = "UPDATE public.\"Lead\" SET \"Nome\"=\'" + nome +"\',\"Email\" = \'" +email +"\', \"Idade\" = " +Integer.valueOf(idade)+", \"Canal\" =\'" + canal+ "\' WHERE \"Cod_Lead\"=\'"+ codLead+ "\';";
             System.out.println("Update Query: " + updateQuery);
             DatabaseConnection.makeQuery(0,updateQuery);
-            return lead;
+            return true;
         } catch(Exception e){
             e.printStackTrace();
-            return null;
+            return false;
         }
 
     }
