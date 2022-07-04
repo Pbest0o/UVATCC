@@ -13,6 +13,7 @@
 			.listContainer {padding: 30px; margin: 0;}
 			.listContainerBody{background-color: #fff; border-radius:10px}
 			.listContainerHeader{padding: 20px;}
+			.formDetails{padding: 20px;}
 		</style>
 	</head>
 <body>
@@ -64,32 +65,33 @@
 
 			</div>
 
-
-		<form action="#" th:object="${data}" method="post">
-			
-			
-			<div class="form-group">
-				<label for="exampleInputPassword1">Código do Lead</label>
-				<input type="text" class="form-control" id="leadCod" placeholder="" th:field="${data.cod_lead}" readonly>
+			<div class="formDetails">
+				<form action="#" th:object="${data}" method="post">
+					
+					
+					<div class="form-group">
+						<label for="exampleInputPassword1">Código do Lead</label>
+						<input type="text" class="form-control" id="leadCod" placeholder="" th:field="${data.cod_lead}" readonly>
+					</div>
+					<div class="form-group">
+					<label for="exampleInputPassword1">Nome</label>
+					<input type="text" class="form-control" id="leadName" placeholder="" th:field="${data.name}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Email</label>
+						<input type="text" class="form-control" id="leadEmail" placeholder="" th:field="${data.email}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Idade</label>
+						<input type="text" class="form-control" id="leadIdade" placeholder="" th:field="${data.idade}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Canal</label>
+						<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${data.canal}">
+					</div>
+					
+				</form>
 			</div>
-			<div class="form-group">
-			<label for="exampleInputPassword1">Nome</label>
-			<input type="text" class="form-control" id="leadName" placeholder="" th:field="${data.name}">
-			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Email</label>
-				<input type="text" class="form-control" id="leadEmail" placeholder="" th:field="${data.email}">
-			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Idade</label>
-				<input type="text" class="form-control" id="leadIdade" placeholder="" th:field="${data.idade}">
-			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Canal</label>
-				<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${data.canal}">
-			</div>
-			
-		</form>
 		</div>
 	</div>
 
