@@ -99,7 +99,7 @@
 					
 					<div class="form-group">
 					  <label for="exampleInputPassword1">Nome</label>
-					  <input type="text" class="form-control" id="leadName" placeholder="" th:field="${lead.name}">
+					  <input type="text" class="form-control" name="leadName" placeholder="" th:field="${lead.name}">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Email</label>
@@ -139,7 +139,7 @@
 		  var form = document.forms[0];
 		  console.log("Teste");
 		  //console.log("Teste");
-		  alert(form.querySelector('input[id="leadName"]').value);
+		  alert(form.querySelector('input[name="leadName"]').value);
 
 		}
 		</script>
