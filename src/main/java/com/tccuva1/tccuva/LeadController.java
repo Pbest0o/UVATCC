@@ -106,7 +106,7 @@ public class LeadController {
 
     @PostMapping("/updateLead")
     @ResponseBody
-    public static Boolean updateLead(@RequestBody Map <String,String> json){
+    public static String updateLead(@RequestBody Map <String,String> json){
 
         String nome = json.get("nome");
         String email = json.get("email");
@@ -119,10 +119,10 @@ public class LeadController {
             String updateQuery = "UPDATE public.\"Lead\" SET \"Nome\"=\'" + nome +"\',\"Email\" = \'" +email +"\', \"Idade\" = " +Integer.valueOf(idade)+", \"Canal\" =\'" + canal+ "\' WHERE \"Cod_Lead\"=\'"+ codLead+ "\';";
             System.out.println("Update Query: " + updateQuery);
             DatabaseConnection.makeQuery(0,updateQuery);
-            return true;
+            return "1";
         } catch(Exception e){
             e.printStackTrace();
-            return false;
+            return "-1";
         }
 
     }
