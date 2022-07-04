@@ -29,13 +29,8 @@ public class PageController {
     public String createLead(@ModelAttribute Lead lead, ModelMap model){
         LeadController.createLead(lead);
         model.addAttribute("leadsList", LeadController.getAllLeads());
-
-        //model.addAttribute("lead",lead);
         return "lead";
     }
-
-
-
 
 
     @GetMapping("/leadDetail/{id}")
@@ -48,6 +43,7 @@ public class PageController {
     @PostMapping("/leadDetail/{id}")
     public String updateLead(@PathVariable String id,@ModelAttribute Lead lead, ModelMap model){
         LeadController.updateLead(lead,id);
+        model.addAttribute("data", lead);
         //model.addAttribute("lead",lead);
         return "leadDetail";
     }
