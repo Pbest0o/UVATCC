@@ -41,8 +41,8 @@ public class LeadController {
 
     @PostMapping("/createLead")
     @ResponseBody
-    public static String createLead(@RequestBody String nome ){
-        String email = null;
+    public static String createLead(@RequestBody String nome ,@RequestBody String email){
+        //String email = null;
         String idade = null;
         String canal = null;
         
