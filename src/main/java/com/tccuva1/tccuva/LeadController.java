@@ -127,13 +127,15 @@ public class LeadController {
 
     }
 
-    public static void deleteLead(String id){
+
+    @PostMapping("/deleteLead")
+    @ResponseBody
+    public static void deleteLead(@RequestBody Map <String,String> json){
+
+        String id = json.get("id");
 
         try{
-
             String deleteQuery = "DELETE FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"';";
-            
-            
             System.out.println("Delete Query: " + deleteQuery);
             DatabaseConnection.makeQuery(0,deleteQuery);
         } catch(Exception e){
