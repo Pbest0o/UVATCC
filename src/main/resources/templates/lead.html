@@ -113,7 +113,7 @@
 						<label for="exampleInputPassword1">Canal</label>
 						<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${lead.canal}">
 					  </div>
-					  <button type="button" class="btn btn-primary" onclick="load()">Salvar</button>
+					  <button type="button" class="btn btn-primary" onclick="createLead()">Salvar</button>
 				</form>
 		</div>
 		</div>
@@ -123,7 +123,7 @@
 
 	  <script>
 		
-		function load() {
+		function createLead() {
 
 		  var leadName = document.querySelector("input[id='leadName']").value;
 		  var leadEmail = document.querySelector("input[id='leadEmail']").value;
