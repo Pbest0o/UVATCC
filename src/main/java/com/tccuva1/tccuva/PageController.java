@@ -30,7 +30,7 @@ public class PageController {
         LeadController.createLead(lead);
         model.addAttribute("leadsList", LeadController.getAllLeads());
 
-        model.addAttribute("lead",lead);
+        //model.addAttribute("lead",lead);
         return "lead";
     }
 
