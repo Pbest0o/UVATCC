@@ -26,13 +26,6 @@ public class PageController {
         return "lead";
     }
 
-    @PostMapping("/lead")
-    public String createLead(@ModelAttribute Lead lead, ModelMap model){
-        //LeadController.createLead(lead);
-        model.addAttribute("leadsList", LeadController.getAllLeads());
-        return "lead";
-    }
-
 
     @GetMapping("/leadDetail/{id}")
     public String leadDetail(@PathVariable String id,ModelMap model){
