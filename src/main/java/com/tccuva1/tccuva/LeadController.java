@@ -46,7 +46,9 @@ public class LeadController {
     }
 
     @PostMapping("/createLead")
-    public static String createLead(@RequestBody String nome,String email,String idade,String canal ){
+    @ResponseBody
+    public static String createLead(@RequestBody String nome, @RequestBody String email,
+                                    @RequestBody String idade,@RequestBody String canal ){
         
         Lead dbLead = null;
 
