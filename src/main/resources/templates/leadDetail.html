@@ -94,15 +94,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="alert alert-primary alert-dismissible fade" role="alert">
-		Lead atualizado com sucesso!
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		  </button>
-	  </div>
-
-	
-
 
 
 
@@ -122,7 +113,7 @@
 		  var xhttp = new XMLHttpRequest();
 		  xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				$('.alert').addClass('show');
+				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/leadDetail/"+ leadCod);
 			}
 		  };
 		  xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateLead", true);
