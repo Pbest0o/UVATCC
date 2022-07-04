@@ -44,13 +44,15 @@ public class PageController {
     public String updateLead(@PathVariable String id,@ModelAttribute Lead lead, ModelMap model){
         LeadController.updateLead(lead,id);
         model.addAttribute("data", lead);
-        //model.addAttribute("lead",lead);
+        
         return "leadDetail";
     }
 
-
-
-
+    @PostMapping("test")
+    public String testPost(){
+        
+        return "Funcionou";
+    }
 
     @GetMapping("/cliente")
     public String cliente(ModelMap model){
