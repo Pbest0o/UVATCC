@@ -1,12 +1,28 @@
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		
+		<title>S.C.C.R.</title>
+		<style>
+			 body {background-color: #49557b;}
+			.listContainer {padding: 30px; margin: 0;}
+			.listContainerBody{background-color: #fff; border-radius:10px}
+			.table {background-color: #fff;}
+			a{color: #356292;}
+			.listContainerHeader{padding: 20px;}
 
-<head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-</head>
+			</style>
+		
+	</head>
 <body>
-
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	
+	<!-- Inicio Navbar-->
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
 		<a class="navbar-brand" href="#">S.C.C.R.</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		  <span class="navbar-toggler-icon"></span>
@@ -15,22 +31,84 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		  <ul class="navbar-nav mr-auto">
 			<li class="nav-item ">
-			  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+			  <a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/">Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="lead">Lead</a>
+			  <a class="nav-link " href="https://pedro-martire-uva-tcc.herokuapp.com/lead">Lead</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="cliente">Cliente</a>
+				<a class="nav-link " href="https://pedro-martire-uva-tcc.herokuapp.com/cliente">Cliente</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="venda">Venda</a>
+				<a class="nav-link active" href="https://pedro-martire-uva-tcc.herokuapp.com/venda">Vendas</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link active" href="atendimento">Atendimento</a>
+				<a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/atendimento">Atendimentos</a>
 			  </li>
 		  </ul>
+
 		</div>
 	  </nav>
+
+
+	  
+
+	  <!-- Fim Navbar-->
+
+	  <!-- Inicio Table-->
+
+	  <div class="listContainer">
+		<div class="listContainerBody">
+		<div class="listContainerHeader">
+			
+				<div class="row">
+					<div class="col-1">
+						<img src="leadIcon.png"/>
+					</div>
+					
+				  <div class="col-7">
+					<p style="margin-bottom: 0; font-size:15px;">Vendas</p>
+					<p style="margin-bottom: 0; font-weight:800">Vistos Recentemente</p>
+				  </div>
+				  <div class="col-4">
+					
+				  </div>
+				</div>
+		</div>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th scope="col">Código Cliente</th>
+				<th scope="col">Código Venda</th>
+				<th scope="col">Quantidade de Items</th>
+				<th scope="col">Valor da Venda</th>
+				<th scope="col">Data De Criação</th>
+				<th scope="col"></th>
+				
+			</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="vl : ${vendasList}">
+					<td th:href="@{/clienteDetail/{id}(id=${vl.cod_cliente})}" th:text="${vl.cod_cliente}" >Codigo Cliente</td></a>
+					<td th:text="${vl.cod_venda}">Codigo Venda</td>
+					<td th:text="${vl.qnt_itens}">Email</td>
+					<td th:text="${vl.vlr_compra}">Idade</td>
+					<td th:text="${vl.data_criacao}">Compras Realizadas</td>
+					<td> <a th:href="@{/clienteDetail/{id}(id=${vl.cod_cliente})}">Link</a></td>
+
+					
+
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+
+
+	  <!-- Fim Table-->
+
+
+
 </body>
 </html>
