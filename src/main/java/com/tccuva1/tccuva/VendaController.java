@@ -21,8 +21,8 @@ public class VendaController {
         try {
             resultSet = DatabaseConnection.makeQuery(1,"SELECT * FROM public.\"Vendas\" ORDER BY \"Cod_Vendas\" ;");
 
-            resultSet.next();
-            System.out.println("Here 1: " + resultSet.getString(1));
+            //resultSet.next();
+            //System.out.println("Here 1: " + resultSet.getString(1));
 
             while(resultSet.next()){
                 vendas.add( new Venda(resultSet.getString(1), resultSet.getString(2), 
