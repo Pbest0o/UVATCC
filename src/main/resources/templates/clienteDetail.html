@@ -157,7 +157,9 @@
 					<p style="margin-bottom: 0; font-size:20px; font-weight:800;">Atendimentos</p>
 				  </div>
 				  <div class="col-4">
-					<button type="button" class="btn btn-info" onclick="atualizarCliente()" style="float:right;">Novo Atendimento</button>
+					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalAtendimento" style="float:right;">
+						Novo Atendimento
+					</button>
 					
 					
 				  </div>
@@ -195,12 +197,12 @@
 	</div>
 
 
-		  <!-- Modal -->
+		  <!-- Modal  Venda-->
 		  <div class="modal fade" id="modalVenda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Criar um Lead</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Criar uma Venda</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -224,6 +226,36 @@
 			</div>
 	  </div>
 	  </div>
+
+	  		  <!-- Modal  Atendimento-->
+				<div class="modal fade" id="modalAtendimento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Criar uma Venda</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						</div>
+						<div class="modal-body">
+							<form action="#" method="post">
+								
+								<div class="form-group">
+								  <label for="exampleInputPassword1">Valor da Venda</label>
+								  <input type="text" class="form-control" id="vendaVlrCompra" >
+								</div>
+								
+								<div class="form-group">
+									<label for="exampleInputPassword1">Quantidade de Items</label>
+									<input type="text" class="form-control" id="vendaQtdItems">
+								  </div>
+								
+								  <button type="button" class="btn btn-info" onclick="createLead()">Salvar</button>
+							</form>
+					</div>
+					</div>
+			  </div>
+			  </div>
 
 
 	<script>
