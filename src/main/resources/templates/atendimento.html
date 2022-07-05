@@ -89,15 +89,14 @@
 			</thead>
 
 			<tbody>
-				<tr th:each="vl : ${vendasList}">
-					<td th:href="@{/clienteDetail/{id}(id=${vl.cod_cliente})}" th:text="${vl.cod_cliente}" >Codigo Cliente</td></a>
-					<td th:text="${vl.cod_venda}">Codigo Venda</td>
-					<td th:text="${vl.qnt_itens}">Email</td>
-					<td th:text="${vl.vlr_compra}">Idade</td>
-					<td th:text="${vl.data_criacao}">Compras Realizadas</td>
-					<td> <a th:href="@{/clienteDetail/{id}(id=${vl.cod_cliente})}">Link</a></td>
-
-					
+				<tr th:each="al : ${atendimentosList}">
+					<td th:text="${al.cod_atendimento}" >Codigo Lead</td>
+					<td th:text="${al.cod_cliente}">Nome</td>
+					<td th:text="${al.tipo_atendimento}">Email</td>
+					<td th:text="${al.comentario}">Canal</td>
+					<td th:text="${al.status}">Canal</td>
+					<td th:text="${al.data_criacao}">Canal</td>
+					<td> <a th:href="@{/leadDetail/{id}(id=${al.data_criacao})}">Link</a></td>
 
 				</tr>
 			</tbody>

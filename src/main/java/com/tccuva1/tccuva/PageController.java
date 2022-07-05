@@ -60,7 +60,8 @@ public class PageController {
     }
 
     @GetMapping("/atendimento")
-    public String atendimento(){
+    public String atendimento(ModelMap model){
+        model.addAttribute("atendimentoList", AtendimentoController.getAllAtendimentos());
         return "atendimento";
     }
     
