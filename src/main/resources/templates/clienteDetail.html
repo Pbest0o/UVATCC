@@ -104,6 +104,36 @@
 					-->
 				</form>
 			</div>
+
+			<hr>
+
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th scope="col">Código</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Email</th>
+					<th scope="col">Canal</th>
+					<th scope="col">Compras</th>
+					<th scope="col">Atendimento</th>
+					<th scope="col"></th>
+					
+				</tr>
+				</thead>
+	
+				<tbody>
+					<tr th:each="cs : ${clientList}">
+						<td >Codigo Cliente</td></a>
+						<td >Nome</td>
+						<td >Email</td>
+						<td >Idade</td>
+						<td >Compras Realizadas</td>
+						<td >Atendimento</td>
+						<td> <a href="">Link</a></td>
+					</tr>
+				</tbody>
+			</table>
+
 		</div>
 	</div>
 
