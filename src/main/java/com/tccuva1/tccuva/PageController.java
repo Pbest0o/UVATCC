@@ -36,6 +36,7 @@ public class PageController {
     @GetMapping("/cliente")
     public String cliente(ModelMap model){
         model.addAttribute("clientList", ClienteController.getAllClientes());
+        
         return "cliente";
     }
 
