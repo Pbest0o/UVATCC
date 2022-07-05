@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 
 
@@ -43,7 +43,9 @@ public class PageController {
     @GetMapping("/clienteDetail/{id}")
     public String clientDetail(@PathVariable String id,ModelMap model){
         Cliente cliente = ClienteController.getCliente(id);
+        Venda venda = null;
         model.addAttribute("client", cliente);
+        model.addAttribute("venda", venda);
         
         return "clienteDetail";
     }
