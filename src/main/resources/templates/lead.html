@@ -82,6 +82,7 @@
 				<th scope="col">Idade</th>
 				<th scope="col">Email</th>
 				<th scope="col">Canal</th>
+				<th scope="col">Data de Criação</th>
 				<th scope="col"></th>
 				
 			</tr>
@@ -94,6 +95,7 @@
 					<td th:text="${ls.idade}">Idade</td>
 					<td th:text="${ls.email}">Email</td>
 					<td th:text="${ls.canal}">Canal</td>
+					<td th:text="${ls.dataCriacao}">Data de Criação</td>
 					<td> <a th:href="@{/leadDetail/{id}(id=${ls.cod_lead})}">Link</a></td>
 
 					
