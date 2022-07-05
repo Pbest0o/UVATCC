@@ -81,6 +81,7 @@
 				<th scope="col">Idade</th>
 				<th scope="col">Vendas Realizadas</th>
 				<th scope="col">Atendimentos Realizados</th>
+				<th scope="col">Data de Criação</th>
 				<th scope="col"></th>
 				
 			</tr>
@@ -94,6 +95,7 @@
 					<td th:text="${cs.idade}">Idade</td>
 					<td th:text="${cs.qtd_compras}">Compras Realizadas</td>
 					<td th:text="${cs.qtd_atendimento}">Atendimento</td>
+					<td th:text="${cs.dataCriacao}">Data de Criação</td>
 					<td> <a th:href="@{/clienteDetail/{id}(id=${cs.cod_cliente})}">Link</a></td>
 				</tr>
 			</tbody>
