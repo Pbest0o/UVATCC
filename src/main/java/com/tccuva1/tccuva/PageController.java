@@ -71,5 +71,12 @@ public class PageController {
         model.addAttribute("data", venda);
         return "vendaDetail";
     }
+
+    @GetMapping("/atemdimentoDetail/{id}")
+    public String atendimentoDetail(@PathVariable String id,ModelMap model){
+        //Venda venda = VendaController.getVenda(id);
+        //model.addAttribute("data", venda);
+        return "atemdimentoDetail";
+    }
     
 }
