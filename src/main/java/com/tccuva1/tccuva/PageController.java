@@ -52,7 +52,7 @@ public class PageController {
     public String venda(ModelMap model){
         model.addAttribute("vendasList", VendaController.getAllVendas());
 
-        return "vendasList";
+        return "venda";
     }
 
     @RequestMapping("/atendimento")
