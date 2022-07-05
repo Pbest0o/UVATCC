@@ -92,7 +92,7 @@
 				<tr th:each="vl : ${vendasList}">
 					<td th:href="@{/clienteDetail/{id}(id=${vl.cod_cliente})}" th:text="${vl.cod_cliente}" >Codigo Cliente</td></a>
 					<td th:text="${vl.cod_cliente}">Codigo Venda</td>
-					<td th:text="${vl.cod_cliente}">Email</td>
+					<td th:text="${vl.cod_vendas}">Email</td>
 					<td th:text="${vl.cod_cliente}">Idade</td>
 					<td th:text="${vl.cod_cliente}">Compras Realizadas</td>
 					<td> <a th:href="@{/clienteDetail/{id}(id=${vl.cod_cliente})}">Link</a></td>
