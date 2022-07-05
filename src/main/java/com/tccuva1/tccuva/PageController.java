@@ -48,14 +48,14 @@ public class PageController {
         return "clienteDetail";
     }
 
-    @RequestMapping("/venda")
+    @GetMapping("/venda")
     public String venda(ModelMap model){
         model.addAttribute("vendasList", VendaController.getAllVendas());
 
         return "venda";
     }
 
-    @RequestMapping("/atendimento")
+    @GetMapping("/atendimento")
     public String atendimento(){
         return "atendimento";
     }
