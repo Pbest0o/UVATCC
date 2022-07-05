@@ -176,17 +176,17 @@
 					
 				</tr>
 				</thead>
-	
+
 				<tbody>
-					
-					<tr>
-						<td >Codigo Cliente</td></a>
-						<td >Nome</td>
-						<td >Email</td>
-						<td >Idade</td>
-						<td >Compras Realizadas</td>
-						<td >Atendimento</td>
-						<td> <a href="">Link</a></td>
+					<tr th:each="al : ${atendimentosList}">
+						<td th:text="${al.cod_atendimento}" >Codigo Lead</td>
+						<td th:text="${al.cod_cliente}">Nome</td>
+						<td th:text="${al.tipo_atendimento}">Email</td>
+						<td th:text="${al.comentario}">Canal</td>
+						<td th:text="${al.status}">Canal</td>
+						<td th:text="${al.data_criacao}">Canal</td>
+						<td> <a th:href="@{/leadDetail/{id}(id=${vl.data_criacao})}">Link</a></td>
+	
 					</tr>
 				</tbody>
 			</table>

@@ -14,8 +14,27 @@ public class AtendimentoController {
         try {
             resultSet = DatabaseConnection.makeQuery(1,"SELECT * FROM public.\"Atendimento\" ORDER BY \"Cod_Atendimento\" ;");
 
-            resultSet.next();
-            System.out.println("Here 1: " + resultSet.getString(1));
+            while(resultSet.next()){
+                atendimentos.add( new Atendimento(resultSet.getString(1), resultSet.getString(2), 
+                resultSet.getString(3), resultSet.getString(4), 
+                resultSet.getString(5), resultSet.getString(6)));
+            }
+
+            return atendimentos;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }        
+    }
+
+    public static List <Atendimento> getAllAtendimentos(String clientId){
+
+        List <Atendimento> atendimentos = new ArrayList<>();
+        ResultSet resultSet = null;
+        
+        try {
+            resultSet = DatabaseConnection.makeQuery(1,"SELECT * FROM public.\"Atendimento\" WHERE \"Cod_Cliente\" = "+clientId+" ORDER BY \"Cod_Atendimento\" DESC;");
 
             while(resultSet.next()){
                 atendimentos.add( new Atendimento(resultSet.getString(1), resultSet.getString(2), 
@@ -23,7 +42,6 @@ public class AtendimentoController {
                 resultSet.getString(5), resultSet.getString(6)));
             }
 
-            //System.out.println("LeadController: " + leads);
             return atendimentos;
             
         } catch (Exception e) {
