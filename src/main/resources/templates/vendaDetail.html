@@ -31,13 +31,13 @@
 			  <a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/">Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link active" href="https://pedro-martire-uva-tcc.herokuapp.com/lead">Lead</a>
+			  <a class="nav-link " href="https://pedro-martire-uva-tcc.herokuapp.com/lead">Lead</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link " href="https://pedro-martire-uva-tcc.herokuapp.com/cliente">Cliente</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/venda">Vendas</a>
+				<a class="nav-link active" href="https://pedro-martire-uva-tcc.herokuapp.com/venda">Vendas</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/atendimento">Atendimentos</a>
@@ -54,7 +54,7 @@
 					
 					
 				  <div class="col-8">
-					<p style="margin-bottom: 0; font-size:20px; font-weight:800;">Lead</p>
+					<p style="margin-bottom: 0; font-size:20px; font-weight:800;">Venda</p>
 				  </div>
 				  <div class="col-4">
 					<button type="button" class="btn btn-danger" onclick="deletarLead()" style="float:right; margin-left:5px;">Deletar</button>
@@ -73,24 +73,24 @@
 					
 					
 					<div class="form-group">
-						<label for="exampleInputPassword1">Código do Lead</label>
-						<input type="text" class="form-control" id="leadCod" placeholder="" th:field="${data.cod_lead}" readonly>
+						<label for="exampleInputPassword1">Código de Venda</label>
+						<input type="text" class="form-control" id="cod_vendas" placeholder="" th:field="${data.cod_vendas}" readonly>
 					</div>
 					<div class="form-group">
 					<label for="exampleInputPassword1">Nome</label>
-					<input type="text" class="form-control" id="leadName" placeholder="" th:field="${data.name}">
+					<input type="text" class="form-control" id="cod_cliente" placeholder="" th:field="${data.cod_cliente}">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Email</label>
-						<input type="text" class="form-control" id="leadEmail" placeholder="" th:field="${data.email}">
+						<input type="text" class="form-control" id="qnt_itens" placeholder="" th:field="${data.qnt_itens}">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Idade</label>
-						<input type="text" class="form-control" id="leadIdade" placeholder="" th:field="${data.idade}">
+						<input type="text" class="form-control" id="vlr_compra" placeholder="" th:field="${data.vlr_compra}">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Canal</label>
-						<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${data.canal}">
+						<input type="text" class="form-control" id="data_criacao" placeholder="" th:field="${data.data_criacao}">
 					</div>
 					
 				</form>
