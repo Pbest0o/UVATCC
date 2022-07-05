@@ -83,12 +83,12 @@ public class LeadController {
 
             DatabaseConnection.makeQuery(0,insertQuery);
 
-            String selectQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ;";
+            String selectQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ORDER BY Cod_Lead;";
             System.out.println("Select Query: " + selectQuery);
             resultSet = DatabaseConnection.makeQuery(1,selectQuery);
-            resultSet.afterLast();
+            
 
-            while(resultSet.previous()){
+            while(resultSet.next()){
                 dbLead = new Lead(resultSet.getString(1), resultSet.getString(2), 
                 resultSet.getString(3), resultSet.getString(4), 
                 resultSet.getString(5), resultSet.getString(6));
