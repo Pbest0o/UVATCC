@@ -59,4 +59,9 @@ public class Cliente {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+      return cod_cliente + cod_lead + name + qtd_compras;
+    }
+
 }
