@@ -6,25 +6,25 @@ import java.util.List;
 
 public class VendaController {
 
-    public static List <Lead> getAllLeads(){
+    public static List <Venda> getAllVendas(){
 
-        List <Lead> leads = new ArrayList<>();
+        List <Venda> vendas = new ArrayList<>();
         ResultSet resultSet = null;
         
         try {
-            resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ORDER BY \"Cod_Lead\" ;");
+            resultSet = DatabaseConnection.makeQuery(1,"SELECT * FROM public.\"Vendas\" ORDER BY \"Cod_Vendas\" ;");
 
             resultSet.next();
             System.out.println("Here 1: " + resultSet.getString(1));
 
             while(resultSet.next()){
-                leads.add( new Lead(resultSet.getString(1), resultSet.getString(2), 
+                vendas.add( new Venda(resultSet.getString(1), resultSet.getString(2), 
                 resultSet.getString(3), resultSet.getString(4), 
-                resultSet.getString(5), resultSet.getString(6)));
+                resultSet.getString(5)));
             }
 
             //System.out.println("LeadController: " + leads);
-            return leads;
+            return vendas;
             
         } catch (Exception e) {
             e.printStackTrace();
