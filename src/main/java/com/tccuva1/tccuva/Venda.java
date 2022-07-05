@@ -1,5 +1,6 @@
 package com.tccuva1.tccuva;
 
+
 public class Venda {
 
     public String cod_vendas;
@@ -16,4 +17,12 @@ public class Venda {
         this.data_criacao = data_criacao;
     }
     
+    public String getCod_vendas(){
+        return this.cod_vendas;
+    }
+
+    public void setCod_vendas(String cod_vendas){
+        this.cod_vendas =cod_vendas;
+    }
+
 }
