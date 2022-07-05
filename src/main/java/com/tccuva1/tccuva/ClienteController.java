@@ -33,37 +33,6 @@ public class ClienteController {
         }        
     }
 
-    public static Lead createLead(Lead lead){
-        
-        Lead dbLead = null;
-
-        try{
-            ResultSet resultSet;
-            String insertQuery = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \' 1" + lead.name + " \' , \'" + lead.email +" \' ,  "+lead.idade+ "  , \' " + lead.canal + "\' ,current_timestamp);";
-            System.out.println("Query: " + insertQuery);
-
-            DatabaseConnection.makeQuery(0,insertQuery);
-
-            String selectQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ;";
-            System.out.println("Select Query: " + selectQuery);
-            resultSet = DatabaseConnection.makeQuery(1,selectQuery);
-            resultSet.afterLast();
-
-            while(resultSet.previous()){
-                dbLead = new Lead(resultSet.getString(1), resultSet.getString(2), 
-                resultSet.getString(3), resultSet.getString(4), 
-                resultSet.getString(5), resultSet.getString(6));
-                break;
-            }
-            return dbLead;
-            
-        } catch(Exception e) {
-            e.printStackTrace();
-            return null;
-
-        }
-    }
-
     public static Cliente getCliente(String id){
         
         Cliente cliente = null;
