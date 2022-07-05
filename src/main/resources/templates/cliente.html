@@ -67,13 +67,11 @@
 					</div>
 					
 				  <div class="col-7">
-					<p style="margin-bottom: 0; font-size:15px;">Leads</p>
+					<p style="margin-bottom: 0; font-size:15px;">Clientes</p>
 					<p style="margin-bottom: 0; font-weight:800">Vistos Recentemente</p>
 				  </div>
 				  <div class="col-4">
-					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="float:right;">
-						Novo Lead
-					</button>
+					
 				  </div>
 				</div>
 		</div>
@@ -108,33 +106,6 @@
 		</table>
 		</div>
 	</div>
-
-	  <script>
-		
-		function createLead() {
-
-		  var leadName = document.querySelector("input[id='leadName']").value;
-		  var leadEmail = document.querySelector("input[id='leadEmail']").value;
-		  var leadIdade = document.querySelector("input[id='leadIdade']").value;
-		  var leadCanal = document.querySelector("input[id='leadCanal']").value;
-
-		  var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'"}';
-		  console.log(leadData); 
-
-		  var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-			  //alert(xhttp.response);
-			  window.location.replace("/leadDetail/" + xhttp.response);
-			}
-		  };
-		  xhttp.open("POST", "createLead", true);
-		  xhttp.setRequestHeader("Content-Type", "application/json");
-		  xhttp.send(leadData);
-
-		  console.log(xhttp.response);
-		}
-		</script>
 
 
 	  <!-- Fim Table-->
