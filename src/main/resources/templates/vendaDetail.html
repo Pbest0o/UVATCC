@@ -58,7 +58,6 @@
 				  </div>
 				  <div class="col-4">
 					<button type="button" class="btn btn-danger" onclick="deletarLead()" style="float:right; margin-left:5px;">Deletar</button>
-					<button type="button" class="btn btn-info" onclick="converterLead()" style="float:right; margin-left:5px;">Converter</button>
 					<button type="button" class="btn btn-info" onclick="atualizarLead()" style="float:right;">Atualizar</button>
 					
 					
@@ -72,12 +71,12 @@
 				<form action="#" th:object="${data}" method="post">
 					
 					
-                    <!--
+                    
 					<div class="form-group">
 						<label for="exampleInputPassword1">Código de Venda</label>
 						<input type="text" class="form-control" id="cod_vendas" placeholder="" th:field="${data.cod_vendas}" readonly>
 					</div>
-                
+                <!--
 					<div class="form-group">
 					<label for="exampleInputPassword1">Nome</label>
 					<input type="text" class="form-control" id="cod_cliente" placeholder="" th:field="${data.cod_cliente}">
