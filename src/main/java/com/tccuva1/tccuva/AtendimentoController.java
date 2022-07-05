@@ -68,7 +68,7 @@ public class AtendimentoController {
 
         try{
             
-            String insertQuery = "INSERT INTO public.\"Atendimento\"(\"Cod_Cliente\", \"Tipo_Atendimento\", \"Comentario\", \"Status\", \"Data_Criacao\")VALUES ( \'" + atendimentoCodCliente + "\' , \'" + atendimentoTipo +" \' ,  "+atendimentoComentario+ "  , \'" + atendimentoStatus + "\' ,current_timestamp);";
+            String insertQuery = "INSERT INTO public.\"Atendimento\"(\"Cod_Cliente\", \"Tipo_Atendimento\", \"Comentario\", \"Status\", \"Data_Criacao\")VALUES ( \'" + atendimentoCodCliente + "\' , \'" + atendimentoTipo +" \' , \'"+atendimentoComentario+ "\'  , \'" + atendimentoStatus + "\' ,current_timestamp);";
             System.out.println("Query: " + insertQuery);
             DatabaseConnection.makeQuery(0,insertQuery);
             return true;
