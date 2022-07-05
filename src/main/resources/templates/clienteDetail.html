@@ -57,8 +57,8 @@
 					<p style="margin-bottom: 0; font-size:20px; font-weight:800;">Cliente</p>
 				  </div>
 				  <div class="col-4">
-					<button type="button" class="btn btn-danger" onclick="deletarLead()" style="float:right; margin-left:5px;">Deletar</button>
-					<button type="button" class="btn btn-info" onclick="atualizarLead()" style="float:right;">Atualizar</button>
+					<button type="button" class="btn btn-danger" onclick="deletarCliente()" style="float:right; margin-left:5px;">Deletar</button>
+					<button type="button" class="btn btn-info" onclick="atualizarCliente()" style="float:right;">Atualizar</button>
 					
 					
 				  </div>
@@ -72,7 +72,7 @@
 					
 					<div class="form-group">
 						<label for="exampleInputPassword1">Código do Cliente</label>
-						<input type="text" class="form-control" id="leadCod" placeholder="" th:field="${data.cod_cliente}" readonly>
+						<input type="text" class="form-control" id="clientCod" placeholder="" th:field="${data.cod_cliente}" readonly>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Código do Lead</label>
@@ -108,7 +108,7 @@
 
 	<script>
 
-		function atualizarLead() {
+		function atualizarCliente() {
 
 		  var leadName = document.querySelector("input[id='leadName']").value;
 		  var leadEmail = document.querySelector("input[id='leadEmail']").value;
@@ -131,7 +131,7 @@
 
 		}
 
-		function deletarLead() {
+		function deletarCliente() {
 			var leadCod = document.querySelector("input[id='leadCod']").value;
 
 			var leadData = '{"id":"' +leadCod+'"}';
