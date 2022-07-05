@@ -43,6 +43,8 @@ public class PageController {
     @GetMapping("/clienteDetail/{id}")
     public String clientDetail(@PathVariable String id,ModelMap model){
         Cliente cliente = ClienteController.getCliente(id);
+
+        System.out.println("Cliente: " + cliente.cod_cliente);
         
         model.addAttribute("data", cliente);
         return "clienteDetail";
