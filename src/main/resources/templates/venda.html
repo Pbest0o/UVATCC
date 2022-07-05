@@ -40,10 +40,10 @@
 				<a class="nav-link " href="https://pedro-martire-uva-tcc.herokuapp.com/cliente">Cliente</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link active" href="https://pedro-martire-uva-tcc.herokuapp.com/venda">Venda</a>
+				<a class="nav-link active" href="https://pedro-martire-uva-tcc.herokuapp.com/venda">Vendas</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/atendimento">Atendimento</a>
+				<a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/atendimento">Atendimentos</a>
 			  </li>
 		  </ul>
 
@@ -67,7 +67,7 @@
 					</div>
 					
 				  <div class="col-7">
-					<p style="margin-bottom: 0; font-size:15px;">Clientes</p>
+					<p style="margin-bottom: 0; font-size:15px;">Vendas</p>
 					<p style="margin-bottom: 0; font-weight:800">Vistos Recentemente</p>
 				  </div>
 				  <div class="col-4">
@@ -78,12 +78,11 @@
 		<table class="table table-striped">
 			<thead>
 			<tr>
-				<th scope="col">Código</th>
-				<th scope="col">Nome</th>
-				<th scope="col">Email</th>
-				<th scope="col">Canal</th>
-				<th scope="col">Compras</th>
-				<th scope="col">Atendimento</th>
+				<th scope="col">Código Cliente</th>
+				<th scope="col">Código Venda</th>
+				<th scope="col">Quantidade de Items</th>
+				<th scope="col">Valor da Venda</th>
+				<th scope="col">Data De Criação</th>
 				<th scope="col"></th>
 				
 			</tr>
@@ -92,7 +91,7 @@
 			<tbody>
 				<tr th:each="vl : ${vendasList}">
 					<td th:href="@{/clienteDetail/{id}(id=${vl.cod_cliente})}" th:text="${vl.cod_cliente}" >Codigo Cliente</td></a>
-					<td th:text="${vl.cod_venda}">Nome</td>
+					<td th:text="${vl.cod_venda}">Codigo Venda</td>
 					<td th:text="${vl.qnt_itens}">Email</td>
 					<td th:text="${vl.vlr_compra}">Idade</td>
 					<td th:text="${vl.data_criacao}">Compras Realizadas</td>
