@@ -21,8 +21,29 @@ public class VendaController {
         try {
             resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Cod_Vendas\", \"Cod_Cliente\", \"Qnt_Itens\", \"Vlr_Compra\", \"Data_Criacao\" FROM public.\"Vendas\" ORDER BY \"Cod_Vendas\" DESC;");
 
-            //resultSet.next();
-            //System.out.println("Here 1: " + resultSet.getString(1));
+            while(resultSet.next()){
+                vendas.add( new Venda(resultSet.getString(1), resultSet.getString(2), 
+                resultSet.getString(3), resultSet.getString(4), 
+                resultSet.getString(5)));
+            }
+
+            return vendas;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }        
+    }
+
+    public static List <Venda> getAllVendasFromClient(String clientId){
+
+        String id = clientId;
+
+        List <Venda> vendas = new ArrayList<>();
+        ResultSet resultSet = null;
+        
+        try {
+            resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Cod_Vendas\", \"Cod_Cliente\", \"Qnt_Itens\", \"Vlr_Compra\", \"Data_Criacao\" FROM public.\"Vendas\" WHERE \"Cod_Cliente\" = " + id + " ORDER BY \"Cod_Vendas\" DESC;");
 
             while(resultSet.next()){
                 vendas.add( new Venda(resultSet.getString(1), resultSet.getString(2), 
@@ -30,7 +51,6 @@ public class VendaController {
                 resultSet.getString(5)));
             }
 
-            //System.out.println("LeadController: " + leads);
             return vendas;
             
         } catch (Exception e) {

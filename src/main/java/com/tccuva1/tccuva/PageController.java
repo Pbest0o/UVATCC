@@ -45,6 +45,7 @@ public class PageController {
         Cliente cliente = ClienteController.getCliente(id);
 
         model.addAttribute("client", cliente);
+        model.addAttribute("vendasList", VendaController.getAllVendasFromClient(id));
         model.addAttribute("venda", new Venda("", "", "", "", ""));
         
         return "clienteDetail";
