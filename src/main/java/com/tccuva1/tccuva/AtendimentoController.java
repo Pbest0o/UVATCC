@@ -3,6 +3,11 @@ package com.tccuva1.tccuva;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 public class AtendimentoController {
 
@@ -50,33 +55,25 @@ public class AtendimentoController {
         }        
     }
 
-    public static Lead createLead(Lead lead){
+    @PostMapping("/createAtendimento")
+    @ResponseBody
+    public static Boolean createAtendimento(@RequestBody Map <String,String> json){
         
-        Lead dbLead = null;
+        String atendimentoTipo = json.get("atendimentoTipo");
+        String atendimentoComentario = json.get("atendimentoComentario");
+        String atendimentoStatus = json.get("atendimentoStatus");
+        String atendimentoCodCliente = json.get("atendimentoCodCliente");
 
         try{
-            ResultSet resultSet;
-            String insertQuery = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \' 1" + lead.name + " \' , \'" + lead.email +" \' ,  "+lead.idade+ "  , \' " + lead.canal + "\' ,current_timestamp);";
+            
+            String insertQuery = "INSERT INTO public.\"Atendimento\"(\"Cod_Cliente\", \"Tipo_Atendimento\", \"Comentario\", \"Status\", \"Data_Criacao\")VALUES ( \'" + atendimentoCodCliente + "\' , \'" + atendimentoTipo +" \' ,  "+atendimentoComentario+ "  , \'" + atendimentoStatus + "\' ,current_timestamp);";
             System.out.println("Query: " + insertQuery);
-
             DatabaseConnection.makeQuery(0,insertQuery);
-
-            String selectQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ;";
-            System.out.println("Select Query: " + selectQuery);
-            resultSet = DatabaseConnection.makeQuery(1,selectQuery);
-            resultSet.afterLast();
-
-            while(resultSet.previous()){
-                dbLead = new Lead(resultSet.getString(1), resultSet.getString(2), 
-                resultSet.getString(3), resultSet.getString(4), 
-                resultSet.getString(5), resultSet.getString(6));
-                break;
-            }
-            return dbLead;
+            return true;
             
         } catch(Exception e) {
             e.printStackTrace();
-            return null;
+            return false;
 
         }
     }
