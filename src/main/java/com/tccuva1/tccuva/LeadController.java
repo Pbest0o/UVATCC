@@ -83,7 +83,7 @@ public class LeadController {
 
             DatabaseConnection.makeQuery(0,insertQuery);
 
-            String selectQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ORDER BY Cod_Lead;";
+            String selectQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ORDER BY \"Cod_Lead\";";
             System.out.println("Select Query: " + selectQuery);
             resultSet = DatabaseConnection.makeQuery(1,selectQuery);
             
