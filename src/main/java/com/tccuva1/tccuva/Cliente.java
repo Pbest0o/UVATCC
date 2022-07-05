@@ -10,9 +10,6 @@ public class Cliente {
     public String qtd_compras;
     public String qtd_atendimento;
     public String dataCriacao;
-    
-
-
 
     public Cliente(String cod_cliente, String cod_lead, String name, String email, String idade, String qtd_compras,
             String qtd_atendimento, String dataCriacao) {
