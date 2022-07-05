@@ -1,0 +1,169 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+		<title>S.C.C.R.</title>
+
+		<style>
+
+			body {background-color: #49557b;}
+			.listContainer {padding: 30px; margin: 0;}
+			.listContainerBody{background-color: #fff; border-radius:10px}
+			.listContainerHeader{padding: 20px;}
+			.formDetails{padding: 20px;}
+		</style>
+	</head>
+<body>
+	
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+		<a class="navbar-brand" href="#">S.C.C.R.</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item ">
+			  <a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link active" href="https://pedro-martire-uva-tcc.herokuapp.com/lead">Lead</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link " href="https://pedro-martire-uva-tcc.herokuapp.com/cliente">Cliente</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/venda">Vendas</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/atendimento">Atendimentos</a>
+			  </li>
+		  </ul>
+		</div>
+	  </nav>
+
+	  <div class="listContainer">
+		<div class="listContainerBody">
+
+			<div class="listContainerHeader">
+				<div class="row">
+					
+					
+				  <div class="col-8">
+					<p style="margin-bottom: 0; font-size:20px; font-weight:800;">Lead</p>
+				  </div>
+				  <div class="col-4">
+					<button type="button" class="btn btn-danger" onclick="deletarLead()" style="float:right; margin-left:5px;">Deletar</button>
+					<button type="button" class="btn btn-info" onclick="converterLead()" style="float:right; margin-left:5px;">Converter</button>
+					<button type="button" class="btn btn-info" onclick="atualizarLead()" style="float:right;">Atualizar</button>
+					
+					
+					
+				  </div>
+				</div>
+
+			</div>
+
+			<div class="formDetails">
+				<form action="#" th:object="${data}" method="post">
+					
+					
+					<div class="form-group">
+						<label for="exampleInputPassword1">Código do Lead</label>
+						<input type="text" class="form-control" id="leadCod" placeholder="" th:field="${data.cod_lead}" readonly>
+					</div>
+					<div class="form-group">
+					<label for="exampleInputPassword1">Nome</label>
+					<input type="text" class="form-control" id="leadName" placeholder="" th:field="${data.name}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Email</label>
+						<input type="text" class="form-control" id="leadEmail" placeholder="" th:field="${data.email}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Idade</label>
+						<input type="text" class="form-control" id="leadIdade" placeholder="" th:field="${data.idade}">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Canal</label>
+						<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${data.canal}">
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script>
+
+		function atualizarLead() {
+
+		  var leadName = document.querySelector("input[id='leadName']").value;
+		  var leadEmail = document.querySelector("input[id='leadEmail']").value;
+		  var leadIdade = document.querySelector("input[id='leadIdade']").value;
+		  var leadCanal = document.querySelector("input[id='leadCanal']").value;
+		  var leadCod = document.querySelector("input[id='leadCod']").value;
+
+		  var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'", "codLead":"'+ leadCod+'"}';
+		  console.log(leadData); 
+
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/leadDetail/"+ leadCod);
+			}
+		  };
+		  xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateLead", true);
+		  xhttp.setRequestHeader("Content-Type", "application/json");
+		  xhttp.send(leadData);
+
+		}
+
+		function deletarLead() {
+			var leadCod = document.querySelector("input[id='leadCod']").value;
+
+			var leadData = '{"id":"' +leadCod+'"}';
+			console.log(leadData); 
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/lead");
+				}
+			};
+			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/deleteLead", true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.send(leadData);
+
+
+		}
+
+		function converterLead(){
+
+			var leadCod = document.querySelector("input[id='leadCod']").value;
+			var leadData = '{"id":"' +leadCod+'"}';
+			console.log(leadData);
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/cliente");
+				}
+			};
+			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/convertLead", true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.send(leadData);
+
+		}
+
+		</script>
+
+
+</body>
+</html>

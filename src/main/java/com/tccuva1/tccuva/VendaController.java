@@ -96,24 +96,25 @@ public class VendaController {
         }
     }
 
-    public static Lead getLead(String id){
+    public static Venda getVenda(String id){
         
-        Lead lead = null;
+        Venda venda = null;
         ResultSet resultSet;
 
         try{
-            String query = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"\';";
+            String query = "SELECT \"Cod_Vendas\", \"Cod_Cliente\", \"Qnt_Itens\", \"Vlr_Compra\", \"Data_Criacao\" FROM public.\"Vendas\" WHERE \"Cod_Vendas\" = " + id + " ;";
             System.out.println("Query: " + query);
 
             resultSet = DatabaseConnection.makeQuery(1,query);
 
             while(resultSet.next()){
-                lead = new Lead(resultSet.getString(1), resultSet.getString(2), 
+                venda = new Venda(resultSet.getString(1), resultSet.getString(2), 
                 resultSet.getString(3), resultSet.getString(4), 
-                resultSet.getString(5), resultSet.getString(6));
+                resultSet.getString(5));
+                break;
             }
 
-            return lead;
+            return venda;
         } catch(Exception e) {
             e.printStackTrace();
             return null;
