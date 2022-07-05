@@ -22,6 +22,15 @@ public class Cliente {
         this.qtd_atendimento = qtd_atendimento;
         this.dataCriacao = dataCriacao;
     }
+
+    public String getCod_cliente() {
+        return cod_cliente;
+    }
+    public void setCod_cliente(String cod_cliente) {
+        this.cod_cliente = cod_cliente;
+    }
+
+
     public String getName() {
         return name;
     }
