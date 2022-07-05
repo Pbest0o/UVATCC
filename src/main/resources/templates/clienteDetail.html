@@ -106,7 +106,20 @@
 			</div>
 
 			<hr>
+			<div class="listContainerHeader">
+				<div class="row">
+					
+				  <div class="col-8">
+					<p style="margin-bottom: 0; font-size:20px; font-weight:800;">Vendas</p>
+				  </div>
+				  <div class="col-4">
+					<button type="button" class="btn btn-info" onclick="atualizarCliente()" style="float:right;">Nova Venda</button>
+					
+					
+				  </div>
+				</div>
 
+			</div>
 			<table class="table table-striped">
 				<thead>
 				<tr>
@@ -122,7 +135,7 @@
 				</thead>
 	
 				<tbody>
-					<tr th:each="cs : ${clientList}">
+					<tr>
 						<td >Codigo Cliente</td></a>
 						<td >Nome</td>
 						<td >Email</td>
