@@ -3,6 +3,11 @@ package com.tccuva1.tccuva;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 public class VendaController {
 
@@ -32,29 +37,35 @@ public class VendaController {
         }        
     }
 
-    public static Lead createLead(Lead lead){
+    @PostMapping("/createVenda")
+    @ResponseBody
+    public static String createVenda(@RequestBody Map <String,String> json ){
+
+        String vendaVlr = json.get("vendaVlr");
+        String vendaQtnItems = json.get("vendaQtdItems");
+        String vendaCodCliente = json.get("vendaCodCliente");
         
-        Lead dbLead = null;
+        Venda dbVenda = null;
 
         try{
             ResultSet resultSet;
-            String insertQuery = "INSERT INTO public.\"Lead\"(\"Nome\", \"Email\", \"Idade\", \"Canal\", \"Data_Criacao\")VALUES ( \' 1" + lead.name + " \' , \'" + lead.email +" \' ,  "+lead.idade+ "  , \' " + lead.canal + "\' ,current_timestamp);";
+            String insertQuery = "INSERT INTO public.\"Vendas\"(\"Cod_Cliente\", \"Qnt_Itens\", \"Vlr_Compra\", \"Data_Criacao\") VALUES ( \'" + vendaCodCliente + "\' , " + vendaQtnItems +" ,  "+vendaVlr+ "  , current_timestamp);";
             System.out.println("Query: " + insertQuery);
 
             DatabaseConnection.makeQuery(0,insertQuery);
 
-            String selectQuery = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" ;";
+            String selectQuery = "SELECT * FROM public.\"Vendas\" ;";
             System.out.println("Select Query: " + selectQuery);
             resultSet = DatabaseConnection.makeQuery(1,selectQuery);
             resultSet.afterLast();
 
             while(resultSet.previous()){
-                dbLead = new Lead(resultSet.getString(1), resultSet.getString(2), 
+                dbVenda = new Venda(resultSet.getString(1), resultSet.getString(2), 
                 resultSet.getString(3), resultSet.getString(4), 
-                resultSet.getString(5), resultSet.getString(6));
+                resultSet.getString(5));
                 break;
             }
-            return dbLead;
+            return dbVenda.cod_vendas;
             
         } catch(Exception e) {
             e.printStackTrace();

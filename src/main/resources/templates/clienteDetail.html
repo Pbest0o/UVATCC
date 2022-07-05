@@ -232,7 +232,7 @@
 					<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Criar uma Venda</h5>
+						<h5 class="modal-title" id="exampleModalLabel">Criar um Atendimento</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -241,13 +241,17 @@
 							<form action="#" method="post">
 								
 								<div class="form-group">
-								  <label for="exampleInputPassword1">Valor da Venda</label>
-								  <input type="text" class="form-control" id="vendaVlrCompra" >
+								  <label for="exampleInputPassword1">Tipo de Atendimento</label>
+								  <input type="text" class="form-control" id="atendimentoTipo" >
 								</div>
 								
 								<div class="form-group">
-									<label for="exampleInputPassword1">Quantidade de Items</label>
-									<input type="text" class="form-control" id="vendaQtdItems">
+									<label for="exampleInputPassword1">Comentário</label>
+									<input type="text" class="form-control" id="atendimentoComentario">
+								  </div>
+								  <div class="form-group">
+									<label for="exampleInputPassword1">Status</label>
+									<input type="text" class="form-control" id="atendimentoStatus">
 								  </div>
 								
 								  <button type="button" class="btn btn-info" onclick="createLead()">Salvar</button>
@@ -259,6 +263,33 @@
 
 
 	<script>
+
+		function criarVendas(){
+			var vendaVlr = document.querySelector("input[id='vendaVlrCompra']").value;
+		  	var vendaQtdItems = document.querySelector("input[id='vendaQtdItems']").value;
+
+			var url = window.location.href;
+			const lastSegment = url.split("/").pop();
+			console.log('Url: ' + lastSegment);
+
+			var vendaCodCliente = lastSegment;
+			
+			var vendaData = '{"vendaVlr":"' + vendaVlr + '", "vendaQtdItems":"'+ vendaQtdItems + '", "vendaCodCliente": "' + vendaCodCliente+'"}';
+			console.log(vendaData);
+
+			
+			var xhttp = new XMLHttpRequest();
+		  	xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/venda/");
+			}
+			};
+			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/createVenda", true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.send(vendaData);
+			
+
+		}
 
 		function atualizarCliente() {
 
