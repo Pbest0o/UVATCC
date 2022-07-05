@@ -78,8 +78,8 @@
 		<table class="table table-striped">
 			<thead>
 			<tr>
-				<th scope="col">Código Cliente</th>
 				<th scope="col">Código Venda</th>
+				<th scope="col">Código Cliente</th>
 				<th scope="col">Quantidade de Items</th>
 				<th scope="col">Valor da Venda</th>
 				<th scope="col">Data De Criação</th>
@@ -90,8 +90,8 @@
 
 			<tbody>
 				<tr th:each="vl : ${vendasList}">
-					<td th:href="@{/clienteDetail/{id}(id=${vl.cod_cliente})}" th:text="${vl.cod_cliente}" >Codigo Cliente</td></a>
 					<td th:text="${vl.cod_vendas}">Codigo Venda</td>
+					<td th:href="@{/clienteDetail/{id}(id=${vl.cod_cliente})}" th:text="${vl.cod_cliente}" >Codigo Cliente</td></a>
 					<td th:text="${vl.qnt_itens}">Email</td>
 					<td th:text="${vl.vlr_compra}">Idade</td>
 					<td th:text="${vl.data_criacao}">Compras Realizadas</td>
