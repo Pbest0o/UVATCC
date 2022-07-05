@@ -54,7 +54,7 @@
 					
 					
 				  <div class="col-8">
-					<p style="margin-bottom: 0; font-size:20px; font-weight:800;">Venda</p>
+					<p style="margin-bottom: 0; font-size:20px; font-weight:800;">Atendimento</p>
 				  </div>
 				  <div class="col-4">
 					<button type="button" class="btn btn-danger" onclick="deletarLead()" style="float:right; margin-left:5px;">Deletar</button>
@@ -68,14 +68,14 @@
 			</div>
 
 			<div class="formDetails">
-                <!--
+                
 				<form action="#" th:object="${data}" method="post">
 					
 					
                     
 					<div class="form-group">
 						<label for="exampleInputPassword1">Código de Venda</label>
-						<input type="text" class="form-control" id="cod_vendas" placeholder="" th:field="*{cod_vendas}" readonly>
+						<input type="text" class="form-control" id="cod_vendas" placeholder="" th:field="*{cod_atendimento}" readonly>
 					</div>
                 
 					<div class="form-group">
@@ -84,19 +84,24 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Quantidade de Items</label>
-						<input type="text" class="form-control" id="qnt_itens" placeholder="" th:field="${data.qnt_itens}">
+						<input type="text" class="form-control" id="qnt_itens" placeholder="" th:field="${data.tipo_atendimento}">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Valor da Compra</label>
-						<input type="text" class="form-control" id="vlr_compra" placeholder="" th:field="${data.vlr_compra}">
+						<input type="text" class="form-control" id="vlr_compra" placeholder="" th:field="${data.comentario}">
 					</div>
 					<div class="form-group">
+						<label for="exampleInputPassword1">Data de Criação</label>
+						<input type="text" class="form-control" id="data_criacao" placeholder="" th:field="${data.status}" >
+					</div>
+
+                    <div class="form-group">
 						<label for="exampleInputPassword1">Data de Criação</label>
 						<input type="text" class="form-control" id="data_criacao" placeholder="" th:field="${data.data_criacao}" readonly>
 					</div>
 					
 				</form>
-                -->
+                
 			</div>
 		</div>
 	</div>
