@@ -58,8 +58,9 @@
 				  </div>
 				  <div class="col-4">
 					<button type="button" class="btn btn-danger" onclick="deletarLead()" style="float:right; margin-left:5px;">Deletar</button>
+					<button type="button" class="btn btn-info" onclick="converterLead()" style="float:right; margin-left:5px;">Converter</button>
 					<button type="button" class="btn btn-info" onclick="atualizarLead()" style="float:right;">Atualizar</button>
-					<button type="button" class="btn btn-info" onclick="converterLead()" style="float:right;">Converter</button>
+					
 					
 					
 				  </div>
@@ -140,6 +141,24 @@
 			xhttp.setRequestHeader("Content-Type", "application/json");
 			xhttp.send(leadData);
 
+
+		}
+
+		function converterLead(){
+
+			var leadCod = document.querySelector("input[id='leadCod']").value;
+			var leadData = '{"id":"' +leadCod+'"}';
+			console.log(leadData);
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/clientes");
+				}
+			};
+			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/convertLead", true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.send(leadData);
 
 		}
 

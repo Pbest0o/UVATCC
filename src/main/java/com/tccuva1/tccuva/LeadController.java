@@ -144,5 +144,29 @@ public class LeadController {
 
     }
 
+    @PostMapping("/convertLead")
+    @ResponseBody
+    public static boolean convertLead(@RequestBody Map <String,String> json){
+
+        String id = json.get("id");
+        Lead lead = LeadController.getLead(id);
+        try{
+            String convertQuery1 = "UPDATE public.\"Lead\" SET \"Convertido\"= true WHERE \"Cod_Lead\" = \'"+id+"';";
+            String convertQuery2 = "INSERT INTO public.\"Cliente\"(\"Cod_Lead\", \"Nome\", \"Email\", \"Idade\") VALUES (\""+ id +"\", \"" +lead.name  +"\", \"" + lead.email +"\", \"" +Integer.valueOf(lead.idade)+"\" ;";
+            System.out.println("Convert Query 1: " + convertQuery1);
+            System.out.println("Convert Query 2: " + convertQuery2);
+
+
+            DatabaseConnection.makeQuery(0,convertQuery1);
+            DatabaseConnection.makeQuery(0,convertQuery2);
+            return true;
+        } catch(Exception e){
+            e.printStackTrace();
+            return false;
+            
+        }
+
+    }
+
     
 }

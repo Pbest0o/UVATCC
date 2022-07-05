@@ -12,7 +12,7 @@ public class ClienteController {
         ResultSet resultSet = null;
         
         try {
-            resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Cod_Cliente\", \"Cod_Lead\", \"Nome\", \"Email\", \"Idade\", \"Qtd_Compras\", \"Qtd_Atendimentos\", \"Data_Criacao\" FROM public.\"Cliente\" ORDER BY \"Cod_Cliente\" DESC ;");
+            resultSet = DatabaseConnection.makeQuery(1,"SELECT \"Cod_Cliente\", \"Cod_Lead\", \"Nome\", \"Email\", \"Idade\", \"Qtd_Compras\", \"Qtd_Atendimentos\", \"Data_Criacao\" FROM public.\"Cliente\" ORDER BY \"Cod_Cliente\" ;");
 
             //resultSet.next();
             //System.out.println("Here Cliente: " + resultSet.getString(1));
