@@ -25,4 +25,36 @@ public class Venda {
         this.cod_vendas =cod_vendas;
     }
 
+    public String getCod_cliente(){
+        return this.cod_cliente;
+    }
+
+    public void setCod_cliente(String cod_cliente){
+        this.cod_cliente =cod_cliente;
+    }
+
+    public String getQnt_itens(){
+        return this.qnt_itens;
+    }
+
+    public void setQnt_itens(String qnt_itens){
+        this.qnt_itens =qnt_itens;
+    }
+
+    public String getVlr_compra(){
+        return this.cod_vendas;
+    }
+
+    public void setVlr_compra(String vlr_compra){
+        this.vlr_compra =vlr_compra;
+    }
+
+    public String getData_criacao(){
+        return this.data_criacao;
+    }
+
+    public void setData_criacao(String data_criacao){
+        this.data_criacao =data_criacao;
+    }
+
 }
