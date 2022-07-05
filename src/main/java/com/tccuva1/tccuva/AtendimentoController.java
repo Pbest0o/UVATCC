@@ -80,24 +80,24 @@ public class AtendimentoController {
         }
     }
 
-    public static Lead getLead(String id){
+    public static Atendimento getAtendimento(String id){
         
-        Lead lead = null;
+        Atendimento atendimento = null;
         ResultSet resultSet;
 
         try{
-            String query = "SELECT \"Nome\", \"Email\", \"Cod_Lead\", \"Idade\", \"Canal\", \"Data_Criacao\" FROM public.\"Lead\" WHERE \"Cod_Lead\" = \'"+id+"\';";
+            String query = "SELECT * FROM public.\"Atendimento\" WHERE \"Cod_Atendimento\" = "+id+" ORDER BY \"Cod_Atendimento\" DESC;";
             System.out.println("Query: " + query);
 
             resultSet = DatabaseConnection.makeQuery(1,query);
 
             while(resultSet.next()){
-                lead = new Lead(resultSet.getString(1), resultSet.getString(2), 
+                atendimento = new Atendimento(resultSet.getString(1), resultSet.getString(2), 
                 resultSet.getString(3), resultSet.getString(4), 
                 resultSet.getString(5), resultSet.getString(6));
             }
 
-            return lead;
+            return atendimento;
         } catch(Exception e) {
             e.printStackTrace();
             return null;
