@@ -6,9 +6,6 @@ import java.util.List;
 
 public class ClienteController {
 
-
-    
-
     public static List <Cliente> getAllClientes(){
 
         List <Cliente> clientes = new ArrayList<>();

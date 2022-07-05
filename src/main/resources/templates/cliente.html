@@ -6,6 +6,16 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		
+		<title>S.C.C.R.</title>
+		<style>
+			 body {background-color: #49557b;}
+			.listContainer {padding: 30px; margin: 0;}
+			.listContainerBody{background-color: #fff; border-radius:10px}
+			.table {background-color: #fff;}
+			a{color: #356292;}
+			.listContainerHeader{padding: 20px;}
+
+			</style>
 		
 	</head>
 <body>
@@ -24,10 +34,10 @@
 			  <a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/">Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link " href="https://pedro-martire-uva-tcc.herokuapp.com/lead">Lead</a>
+			  <a class="nav-link active" href="https://pedro-martire-uva-tcc.herokuapp.com/lead">Lead</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" href="https://pedro-martire-uva-tcc.herokuapp.com/cliente">Cliente</a>
+				<a class="nav-link " href="https://pedro-martire-uva-tcc.herokuapp.com/cliente">Cliente</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/venda">Venda</a>
@@ -36,48 +46,71 @@
 				<a class="nav-link" href="https://pedro-martire-uva-tcc.herokuapp.com/atendimento">Atendimento</a>
 			  </li>
 		  </ul>
-		  <form class="form-inline my-2 my-lg-0">
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-				Criar Cliente
-			  </button>
-			</form>
-		  
+
 		</div>
-	  </nav>	  
+	  </nav>
+
+
+	  
 
 	  <!-- Fim Navbar-->
 
 	  <!-- Inicio Table-->
 
-	  <table class="table table-striped">
-		<thead>
-		  <tr>
-			<th scope="col">Código</th>
-			<th scope="col">Nome</th>
-			<th scope="col">Email</th>
-			<th scope="col"></th>
+	  <div class="listContainer">
+		<div class="listContainerBody">
+		<div class="listContainerHeader">
 			
-		  </tr>
-		</thead>
-
-		<tbody>
-			<tr th:each="cl : ${clientList}">
-				<td th:text="${cl.cod_cliente}" >Codigo Lead</td></a>
-				<td th:text="${cl.name}">Nome</td>
-				<td th:text="${cl.email}">Email</td>
-				<td> <a th:href="@{/clienteDetail/{id}(id=${cl.cod_cliente})}">Link</a></td>
-
+				<div class="row">
+					<div class="col-1">
+						<img src="leadIcon.png"/>
+					</div>
+					
+				  <div class="col-7">
+					<p style="margin-bottom: 0; font-size:15px;">Leads</p>
+					<p style="margin-bottom: 0; font-weight:800">Vistos Recentemente</p>
+				  </div>
+				  <div class="col-4">
+					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="float:right;">
+						Novo Lead
+					</button>
+				  </div>
+				</div>
+		</div>
+		<table class="table table-striped">
+			<thead>
+			<tr>
+				<th scope="col">Código</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Email</th>
+				<th scope="col">Canal</th>
+				<th scope="col">Compras</th>
+				<th scope="col">Atendimento</th>
+				<th scope="col"></th>
+				
 			</tr>
-		</tbody>
-	  </table>
-	  <br>
-	  <div>
-		
+			</thead>
 
-	  </div>
+			<tbody>
+				<tr th:each="cs : ${clientList}">
+					<td th:href="@{/clienteDetail/{id}(id=${cs.cod_cliente})}" th:text="${cs.cod_cliente}" >Codigo Cliente</td></a>
+					<td th:text="${cs.name}">Nome</td>
+					<td th:text="${cs.email}">Email</td>
+					<td th:text="${cs.canal}">Idade</td>
+					<td th:text="${cs.qtd_compras}">Compras Realizadas</td>
+					<td th:text="${cs.qtd_atendimento}">Atendimento</td>
+					<td> <a th:href="@{/clienteDetail/{id}(id=${cs.cod_cliente})}">Link</a></td>
 
-	  
-	  <!-- Modal 
+					
+
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+
+
+	  <!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -88,34 +121,61 @@
 			</button>
 			</div>
 			<div class="modal-body">
-				<form action="#" th:action="@{/lead}" th:object="${lead}" method="post">
+				<form action="#" th:action="@{/createLead}" th:object="${lead}" method="post">
 					
 					<div class="form-group">
 					  <label for="exampleInputPassword1">Nome</label>
-					  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" th:field="${lead.name}">
+					  <input type="text" class="form-control" id="leadName" placeholder="" th:field="${lead.name}">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Email</label>
-						<input type="text" class="form-control" id="exampleInputPassword1" placeholder="" th:field="${lead.email}">
+						<input type="text" class="form-control" id="leadEmail" placeholder="" th:field="${lead.email}">
 					  </div>
 					  <div class="form-group">
 						<label for="exampleInputPassword1">Idade</label>
-						<input type="text" class="form-control" id="exampleInputPassword1" placeholder="" th:field="${lead.idade}">
+						<input type="text" class="form-control" id="leadIdade" placeholder="" th:field="${lead.idade}">
 					  </div>
 					  <div class="form-group">
 						<label for="exampleInputPassword1">Canal</label>
-						<input type="text" class="form-control" id="exampleInputPassword1" placeholder="" th:field="${lead.canal}">
+						<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${lead.canal}">
 					  </div>
-					  <input type="submit" value="Criar" />
+					  <button type="button" class="btn btn-info" onclick="createLead()">Salvar</button>
 				</form>
 		</div>
 		</div>
   </div>
   </div>
--->
-	  <br>
+
+	  <script>
+		
+		function createLead() {
+
+		  var leadName = document.querySelector("input[id='leadName']").value;
+		  var leadEmail = document.querySelector("input[id='leadEmail']").value;
+		  var leadIdade = document.querySelector("input[id='leadIdade']").value;
+		  var leadCanal = document.querySelector("input[id='leadCanal']").value;
+
+		  var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'"}';
+		  console.log(leadData); 
+
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			  //alert(xhttp.response);
+			  window.location.replace("/leadDetail/" + xhttp.response);
+			}
+		  };
+		  xhttp.open("POST", "createLead", true);
+		  xhttp.setRequestHeader("Content-Type", "application/json");
+		  xhttp.send(leadData);
+
+		  console.log(xhttp.response);
+		}
+		</script>
+
 
 	  <!-- Fim Table-->
+
 
 
 </body>
