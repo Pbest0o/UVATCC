@@ -132,8 +132,8 @@
 						<label for="exampleInputPassword1">Idade</label>
 						<input type="text" class="form-control" id="leadIdade" placeholder="" th:field="${lead.idade}" required>
 					  </div>
-					  
-						<select name="canais" id="leadCanal" class="form-select">
+					  <div class="form-group">
+						<select  class="form-select form-select-sm" id="leadCanal" >
 							<option selected value="">Escolha uma Opção</option>
 							<option value="Telefone">Telefone</option>
 							<option value="Web">Web</option>
@@ -141,11 +141,7 @@
 							<option value="Offline">Offline</option>
 							<option value="Outros">Outros</option>
 						  </select>
-						  <!--
-						<label for="exampleInputPassword1">Canal</label>
-						<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${lead.canal}">
-						-->
-					  
+					  </div>
 					  <button type="button" class="btn btn-info" onclick="createLead()">Salvar</button>
 				</form>
 		</div>
