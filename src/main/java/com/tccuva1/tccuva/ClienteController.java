@@ -91,7 +91,7 @@ public class ClienteController {
 
     @PostMapping("/deleteCliente")
     @ResponseBody
-    public static void deleteCliente(@RequestBody Map <String,String> json){
+    public static boolean deleteCliente(@RequestBody Map <String,String> json){
 
         String id = json.get("id");
 
@@ -99,8 +99,10 @@ public class ClienteController {
             String deleteQuery = "DELETE FROM public.\"Cliente\" WHERE \"Cod_Cliente\" = \'"+id+"';";
             System.out.println("Delete Query: " + deleteQuery);
             DatabaseConnection.makeQuery(0,deleteQuery);
+            return true;
         } catch(Exception e){
             e.printStackTrace();
+            return false;
         }
 
     }
