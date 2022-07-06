@@ -302,25 +302,39 @@
 			var vendaVlr = parseFloat(document.querySelector("input[id='vendaVlrCompra']").value).toFixed(2);
 		  	var vendaQtdItems = document.querySelector("input[id='vendaQtdItems']").value;
 
-			var url = window.location.href;
-			const lastSegment = url.split("/").pop();
-			console.log('Url: ' + lastSegment);
+			var reg = new RegExp('[+-]?([0-9]*[.])?[0-9]+');
 
-			var vendaCodCliente = lastSegment;
-			
-			var vendaData = '{"vendaVlr":"' + vendaVlr + '", "vendaQtdItems":"'+ vendaQtdItems + '", "vendaCodCliente": "' + vendaCodCliente+'"}';
-			console.log(vendaData);
-
-			
-			var xhttp = new XMLHttpRequest();
-		  	xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/clienteDetail/"+vendaCodCliente);
+			if(vendaVlr == ''){
+				alert('Por favor, preencha o campo Valor de Venda.');
+			} else if(reg.test(vendaVlr)){
+				alert('Por favor, o campo Valor de Venda deve ser númerico.');
+			} else if(vendaQtdItems == ''){
+				alert('Por favor, preencha o campo Quantidade de Itens.');
+			} else if(reg.test(vendaQtdItems)){
+				alert('Por favor, o campo Quantidade de Itens deve ser númerico.');
+			} else{
+				var url = window.location.href;
+				const lastSegment = url.split("/").pop();
+				console.log('Url: ' + lastSegment);
+	
+				var vendaCodCliente = lastSegment;
+				
+				var vendaData = '{"vendaVlr":"' + vendaVlr + '", "vendaQtdItems":"'+ vendaQtdItems + '", "vendaCodCliente": "' + vendaCodCliente+'"}';
+				console.log(vendaData);
+	
+				
+				var xhttp = new XMLHttpRequest();
+				  xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/clienteDetail/"+vendaCodCliente);
+				}
+				};
+				xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/createVenda", true);
+				xhttp.setRequestHeader("Content-Type", "application/json");
+				xhttp.send(vendaData);
 			}
-			};
-			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/createVenda", true);
-			xhttp.setRequestHeader("Content-Type", "application/json");
-			xhttp.send(vendaData);
+
+			
 
 		}
 
