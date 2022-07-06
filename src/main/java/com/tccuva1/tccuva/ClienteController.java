@@ -96,9 +96,13 @@ public class ClienteController {
         String id = json.get("id");
 
         try{
-            String deleteQuery = "DELETE FROM public.\"Cliente\" WHERE \"Cod_Cliente\" = \'"+id+"';";
-            System.out.println("Delete Query: " + deleteQuery);
-            DatabaseConnection.makeQuery(0,deleteQuery);
+            String deleteQueryAtendimento = "DELETE FROM public.\"Atendimento\" WHERE \"Cod_Cliente\" = \'"+id+"';";
+            String deleteQueryVenda = "DELETE FROM public.\"Venda\" WHERE \"Cod_Cliente\" = \'"+id+"';";
+            String deleteQueryCliente = "DELETE FROM public.\"Cliente\" WHERE \"Cod_Cliente\" = \'"+id+"';";
+            System.out.println("Delete Query: " + deleteQueryAtendimento);
+            DatabaseConnection.makeQuery(0,deleteQueryAtendimento);
+            DatabaseConnection.makeQuery(0,deleteQueryVenda);
+            DatabaseConnection.makeQuery(0,deleteQueryCliente);
             return true;
         } catch(Exception e){
             e.printStackTrace();
