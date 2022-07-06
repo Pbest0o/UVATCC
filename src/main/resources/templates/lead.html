@@ -152,9 +152,15 @@
 		  var leadIdade = document.querySelector("input[id='leadIdade']").value;
 		  var leadCanal = document.querySelector("input[id='leadCanal']").value;
 
-		  if(leadIdade == ''){
-			alert('Por favor, preencha a idade');
-		  } else{
+		  var reg = new RegExp('^[0-9]*$');
+
+		  if(leadName == ''){
+			alert('Por favor, preencha o nome do Lead.');
+		  } else if(leadIdade == ''){
+			alert('Por favor, preencha a idade do Lead.');
+		  } else if(reg.test(leadIdade) == false){
+			alert('O campo idade do Lead deve ser numérico.');
+		 	}else {
 			var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'"}';
 			console.log(leadData); 
 
