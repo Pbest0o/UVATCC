@@ -305,7 +305,7 @@
 			if(isNaN(vendaVlr)){
 				alert('Por favor, preencha o campo Valor da Venda.');
 			
-			} else if(vendaQtdItems == ''){
+			} else if(isNaN(vendaQtdItems)){
 				alert('Por favor, preencha o campo Quantidade de Itens.');
 			} else{
 				var url = window.location.href;
