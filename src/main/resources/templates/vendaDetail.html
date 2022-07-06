@@ -104,24 +104,30 @@
 	<script>
 
 		function atualizarVenda() {
+			
 
 		  var vendaCod = document.querySelector("input[id='cod_vendas']").value;
 		  var vendaQnt_itens = document.querySelector("input[id='qnt_itens']").value;
 		  var vendaVlr_compra = document.querySelector("input[id='vlr_compra']").value;
 
-		  var vendaData = '{"cod_vendas":"' + vendaCod + '", "qnt_itens":"'+ vendaQnt_itens + '", "vlr_compra": "' + vendaVlr_compra + '"}';
-		  console.log(vendaData); 
+		  if(vendaQnt_itens == ''){
+			alert('Por favor, preencha o campo Quantidade de Items da Venda.');
+		  } else if(vendaVlr_compra == ''){
+			alert('Por favor, preencha o campo Valor da Venda.');
+		  } else {
+			var vendaData = '{"cod_vendas":"' + vendaCod + '", "qnt_itens":"'+ vendaQnt_itens + '", "vlr_compra": "' + vendaVlr_compra + '"}';
+			console.log(vendaData); 
 
-		  var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/vendaDetail/"+ vendaCod);
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/vendaDetail/"+ vendaCod);
+				}
+			};
+			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateVenda", true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.send(vendaData);
 			}
-		  };
-		  xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateVenda", true);
-		  xhttp.setRequestHeader("Content-Type", "application/json");
-		  xhttp.send(vendaData);
-
 		}
 
 		

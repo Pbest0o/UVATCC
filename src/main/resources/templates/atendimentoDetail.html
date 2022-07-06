@@ -117,20 +117,22 @@
 		  var comentario = document.querySelector("input[id='comentario']").value;
 		  var status = document.querySelector("input[id='status']").value;
 
+		  if(comentario == ''){
+			alert('Por favor, preencha o campo Comentário do Atendimento.');
+		  } else{
+			var atendimentoData = '{"cod_atendimento":"' + cod_atendimento + '", "tipo_atendimento":"'+ tipo_atendimento + '", "comentario": "' + comentario + '", "status":"'+ status +'"}';
+			console.log(atendimentoData); 
 
-		  var atendimentoData = '{"cod_atendimento":"' + cod_atendimento + '", "tipo_atendimento":"'+ tipo_atendimento + '", "comentario": "' + comentario + '", "status":"'+ status +'"}';
-		  console.log(atendimentoData); 
-
-		  var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/atendimentoDetail/"+ cod_atendimento);
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/atendimentoDetail/"+ cod_atendimento);
+				}
+			};
+			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateAtendimento", true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.send(atendimentoData);
 			}
-		  };
-		  xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateAtendimento", true);
-		  xhttp.setRequestHeader("Content-Type", "application/json");
-		  xhttp.send(atendimentoData);
-
 		}
 
 		function deletarAtendimento() {
