@@ -42,7 +42,7 @@ public class Venda {
     }
 
     public String getVlr_compra(){
-        return this.cod_vendas;
+        return this.vlr_compra;
     }
 
     public void setVlr_compra(String vlr_compra){
