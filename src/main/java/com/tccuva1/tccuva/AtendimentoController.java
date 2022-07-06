@@ -105,17 +105,24 @@ public class AtendimentoController {
         }
     }
 
-    public static Lead updateLead(Lead lead,String id){
+    @PostMapping("/updateAtendimento")
+    @ResponseBody
+    public static Boolean updateAtendimento(@RequestBody Map <String,String> json){
+
+        String cod_atendimento = json.get("cod_atendimento");
+        String tipo_atendimento = json.get("tipo_atendimento");
+        String comentario = json.get("comentario");
+        String status = json.get("status");
 
         try{
 
-            String updateQuery = "UPDATE public.\"Lead\" SET \"Nome\"=\'" + lead.name +"\',\"Email\" = \'" +lead.email +"\', \"Idade\" = " +lead.idade+", \"Canal\" =\'" + lead.canal+ "\' WHERE \"Cod_Lead\"=\'"+ id+ "\';";
+            String updateQuery = "UPDATE public.\"Vendas\" SET \"Tipo_Atendimento\"=" + tipo_atendimento +",\"Comentario\" = " + comentario +",\"Status\" = \'" +status +"\' WHERE \"Cod_Atendimento\"=\'"+ cod_atendimento+ "\';";
             System.out.println("Update Query: " + updateQuery);
             DatabaseConnection.makeQuery(0,updateQuery);
-            return lead;
+            return true;
         } catch(Exception e){
             e.printStackTrace();
-            return null;
+            return false;
         }
 
     }

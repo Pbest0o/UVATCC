@@ -112,24 +112,24 @@
 
 		function atualizarLead() {
 
-		  var leadName = document.querySelector("input[id='leadName']").value;
-		  var leadEmail = document.querySelector("input[id='leadEmail']").value;
-		  var leadIdade = document.querySelector("input[id='leadIdade']").value;
-		  var leadCanal = document.querySelector("input[id='leadCanal']").value;
-		  var leadCod = document.querySelector("input[id='leadCod']").value;
+		  var cod_atendimento = document.querySelector("input[id='cod_atendimento']").value;
+		  var tipo_atendimento = document.querySelector("input[id='tipo_atendimento']").value;
+		  var comentario = document.querySelector("input[id='comentario']").value;
+		  var status = document.querySelector("input[id='status']").value;
 
-		  var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'", "codLead":"'+ leadCod+'"}';
-		  console.log(leadData); 
+
+		  var atendimentoData = '{"cod_atendimento":"' + cod_atendimento + '", "tipo_atendimento":"'+ tipo_atendimento + '", "comentario": "' + comentario + '", "status":"'+ status +'"}';
+		  console.log(atendimentoData); 
 
 		  var xhttp = new XMLHttpRequest();
 		  xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/leadDetail/"+ leadCod);
+				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/atendimentoDetail/"+ cod_atendimento);
 			}
 		  };
-		  xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateLead", true);
+		  xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateAtendimento", true);
 		  xhttp.setRequestHeader("Content-Type", "application/json");
-		  xhttp.send(leadData);
+		  xhttp.send(atendimentoData);
 
 		}
 
