@@ -121,9 +121,9 @@ public class AtendimentoController {
     }
 
 
-    @PostMapping("/deleteVenda")
+    @PostMapping("/deleteAtendimento")
     @ResponseBody
-    public static boolean deleteCliente(@RequestBody Map <String,String> json){
+    public static boolean deleteAtendimento(@RequestBody Map <String,String> json){
 
         String id = json.get("id");
 
