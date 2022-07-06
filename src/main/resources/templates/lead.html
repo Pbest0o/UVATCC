@@ -133,8 +133,16 @@
 						<input type="text" class="form-control" id="leadIdade" placeholder="" th:field="${lead.idade}" required>
 					  </div>
 					  <div class="form-group">
+						<select name="cars" id="leadCanal">
+							<option value="volvo">Telefone</option>
+							<option value="saab">Web</option>
+							<option value="mercedes">Email</option>
+							<option value="audi">Offline</option>
+						  </select>
+						  <!--
 						<label for="exampleInputPassword1">Canal</label>
 						<input type="text" class="form-control" id="leadCanal" placeholder="" th:field="${lead.canal}">
+						-->
 					  </div>
 					  <button type="button" class="btn btn-info" onclick="createLead()">Salvar</button>
 				</form>
@@ -155,11 +163,11 @@
 		  var reg = new RegExp('^[0-9]*$');
 
 		  if(leadName == ''){
-			alert('Por favor, preencha o nome do Lead.');
+			alert('Por favor, preencha o Nome do Lead.');
 		  } else if(leadIdade == ''){
-			alert('Por favor, preencha a idade do Lead.');
+			alert('Por favor, preencha a Idade do Lead.');
 		  } else if(reg.test(leadIdade) == false){
-			alert('O campo idade do Lead deve ser numérico.');
+			alert('O campo Idade do Lead deve ser numérico.');
 		 	}else {
 			var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'"}';
 			console.log(leadData); 
