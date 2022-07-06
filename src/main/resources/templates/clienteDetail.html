@@ -344,19 +344,25 @@
 		  var clientEmail = document.querySelector("input[id='clientEmail']").value;
 		  var clientIdade = document.querySelector("input[id='clientIdade']").value;
 
-		  var clientData = '{"nome":"' + clientName + '", "email":"'+ clientEmail + '", "idade": "'+ clientIdade + '", "cod_cliente":"'+ clientCode +'"}';
-		  console.log(clientData); 
+		  if(clientName == ''){
+			alert('Por favor, preencha o Nome do Lead.');
+		  } else if(clientIdade == ''){
+			alert('Por favor, preencha a Idade do Lead.');
+		  } else {
 
-		  var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/clienteDetail/"+ clientCode);
+			var clientData = '{"nome":"' + clientName + '", "email":"'+ clientEmail + '", "idade": "'+ clientIdade + '", "cod_cliente":"'+ clientCode +'"}';
+			console.log(clientData); 
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/clienteDetail/"+ clientCode);
+				}
+			};
+			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateCliente", true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.send(clientData);
 			}
-		  };
-		  xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/updateCliente", true);
-		  xhttp.setRequestHeader("Content-Type", "application/json");
-		  xhttp.send(clientData);
-
 		}
 
 		function deletarCliente() {
