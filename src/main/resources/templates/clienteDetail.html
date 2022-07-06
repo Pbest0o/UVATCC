@@ -288,6 +288,8 @@
 
 		function criarVendas(){
 			var vendaVlr = document.querySelector("input[id='vendaVlrCompra']").value;
+			vendaVlr = vendaVlr.toFixed(2);
+			console.log('Fixed: ' +vendaVlr );
 		  	var vendaQtdItems = document.querySelector("input[id='vendaQtdItems']").value;
 
 			var url = window.location.href;
