@@ -279,9 +279,9 @@
 	<script>
 
 		function criarAtendimento(){
-			var atendimentoTipo = document.querySelector("input[id='atendimentoTipo']").value;
+			var atendimentoTipo = document.querySelector("select[id='atendimentoTipo']").value;
 		  	var atendimentoComentario = document.querySelector("input[id='atendimentoComentario']").value;
-			var atendimentoStatus = document.querySelector("input[id='atendimentoStatus']").value;
+			var atendimentoStatus = document.querySelector("select[id='atendimentoStatus']").value;
 
 			var url = window.location.href;
 			const lastSegment = url.split("/").pop();
