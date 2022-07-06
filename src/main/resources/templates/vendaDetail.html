@@ -126,40 +126,22 @@
 
 		}
 
-		function deletarLead() {
-			var leadCod = document.querySelector("input[id='leadCod']").value;
+		function deletarVenda() {
+			var vendaCod = document.querySelector("input[id='cod_vendas']").value;
 
-			var leadData = '{"id":"' +leadCod+'"}';
-			console.log(leadData); 
-
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/lead");
-				}
-			};
-			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/deleteLead", true);
-			xhttp.setRequestHeader("Content-Type", "application/json");
-			xhttp.send(leadData);
-
-
-		}
-
-		function converterLead(){
-
-			var leadCod = document.querySelector("input[id='leadCod']").value;
-			var leadData = '{"id":"' +leadCod+'"}';
-			console.log(leadData);
+			var vendaData = '{"id":"' +vendaCod+'"}';
+			console.log(vendaData); 
 
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
-					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/cliente");
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/venda");
 				}
 			};
-			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/convertLead", true);
+			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/deleteVenda", true);
 			xhttp.setRequestHeader("Content-Type", "application/json");
-			xhttp.send(leadData);
+			xhttp.send(vendaData);
+
 
 		}
 

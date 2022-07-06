@@ -122,17 +122,45 @@ public class VendaController {
         }
     }
 
-    public static Lead updateLead(Lead lead,String id){
+    @PostMapping("/updateCliente")
+    @ResponseBody
+    public static Boolean updateCliente(@RequestBody Map <String,String> json){
+
+        String nome = json.get("nome");
+        String email = json.get("email");
+        String idade = json.get("idade");
+        String cod_cliente = json.get("cod_cliente");
 
         try{
 
-            String updateQuery = "UPDATE public.\"Lead\" SET \"Nome\"=\'" + lead.name +"\',\"Email\" = \'" +lead.email +"\', \"Idade\" = " +lead.idade+", \"Canal\" =\'" + lead.canal+ "\' WHERE \"Cod_Lead\"=\'"+ id+ "\';";
+            String updateQuery = "UPDATE public.\"Cliente\" SET \"Nome\"=\'" + nome +"\',\"Email\" = \'" + email +"\', \"Idade\" = " + idade+" WHERE \"Cod_Cliente\"=\'"+ cod_cliente+ "\';";
             System.out.println("Update Query: " + updateQuery);
             DatabaseConnection.makeQuery(0,updateQuery);
-            return lead;
+            return true;
         } catch(Exception e){
             e.printStackTrace();
-            return null;
+            return false;
+        }
+
+    }
+
+    @PostMapping("/deleteVenda")
+    @ResponseBody
+    public static boolean deleteCliente(@RequestBody Map <String,String> json){
+
+        String id = json.get("id");
+
+        try{
+            
+            String deleteQueryVenda = "DELETE FROM public.\"Vendas\" WHERE \"Cod_Vendas\" = \'"+id+"';";
+            
+            System.out.println("Delete Query: " + deleteQueryVenda);
+            DatabaseConnection.makeQuery(0,deleteQueryVenda);
+            
+            return true;
+        } catch(Exception e){
+            e.printStackTrace();
+            return false;
         }
 
     }
