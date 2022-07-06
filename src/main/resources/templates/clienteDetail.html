@@ -302,7 +302,7 @@
 			var vendaVlr = parseFloat(document.querySelector("input[id='vendaVlrCompra']").value).toFixed(2);
 		  	var vendaQtdItems = document.querySelector("input[id='vendaQtdItems']").value;
 
-			var reg = new RegExp('[+-]?([0-9]*[.])?[0-9]+');
+			var reg = new RegExp('^[0-9]*$');
 
 			if(vendaVlr == ''){
 				alert('Por favor, preencha o campo Valor de Venda.');
