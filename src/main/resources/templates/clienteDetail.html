@@ -119,7 +119,7 @@
 				<thead>
 				<tr>
 					<th scope="col">Código de Vendas</th>
-					<th scope="col">Código d Cliente</th>
+					<th scope="col">Código do Cliente</th>
 					<th scope="col">Quantidade de Items</th>
 					<th scope="col">Valor da Compra</th>
 					<th scope="col"></th>
@@ -132,7 +132,7 @@
 						<td th:text="${vl.cod_vendas}" >Codigo Lead</td>
 						<td th:text="${vl.cod_cliente}">Nome</td>
 						<td th:text="${vl.qnt_itens}">Email</td>
-						<td th:text="${vl.vlr_compra}">Canal</td>
+						<td th:text="${vl.qnt_itens}">Canal</td>
 						<td> <a th:href="@{/vendaDetail/{id}(id=${vl.cod_vendas})}">Link</a></td>
 	
 					</tr>

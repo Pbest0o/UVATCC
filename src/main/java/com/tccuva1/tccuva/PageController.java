@@ -47,7 +47,8 @@ public class PageController {
         model.addAttribute("client", cliente);
         model.addAttribute("vendasList", VendaController.getAllVendasFromClient(id));
         model.addAttribute("atendimentosList", AtendimentoController.getAllAtendimentos(id));
-        model.addAttribute("venda", new Venda("", "", "", "", ""));
+        
+        //model.addAttribute("venda", new Venda("", "", "", "", ""));
         
         return "clienteDetail";
     }
