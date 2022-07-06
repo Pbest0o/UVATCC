@@ -83,11 +83,11 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Quantidade de Items</label>
-						<input type="text" class="form-control" id="qnt_itens" placeholder="" th:field="${data.qnt_itens}">
+						<input type="number" class="form-control" id="qnt_itens" placeholder="" th:field="${data.qnt_itens}" step="1">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Valor da Compra</label>
-						<input type="text" class="form-control" id="vlr_compra" placeholder="" th:field="${data.vlr_compra}">
+						<input type="number" class="form-control" id="vlr_compra" placeholder="" th:field="${data.vlr_compra}" step="0.01">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Data de Criação</label>
