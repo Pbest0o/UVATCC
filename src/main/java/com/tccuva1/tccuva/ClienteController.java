@@ -97,7 +97,7 @@ public class ClienteController {
 
         try{
             String deleteQueryAtendimento = "DELETE FROM public.\"Atendimento\" WHERE \"Cod_Cliente\" = \'"+id+"';";
-            String deleteQueryVenda = "DELETE FROM public.\"Venda\" WHERE \"Cod_Cliente\" = \'"+id+"';";
+            String deleteQueryVenda = "DELETE FROM public.\"Vendas\" WHERE \"Cod_Cliente\" = \'"+id+"';";
             String deleteQueryCliente = "DELETE FROM public.\"Cliente\" WHERE \"Cod_Cliente\" = \'"+id+"';";
             System.out.println("Delete Query: " + deleteQueryAtendimento);
             DatabaseConnection.makeQuery(0,deleteQueryAtendimento);
