@@ -126,14 +126,13 @@ public class VendaController {
     @ResponseBody
     public static Boolean updateVenda(@RequestBody Map <String,String> json){
 
-        String nome = json.get("nome");
-        String email = json.get("email");
-        String idade = json.get("idade");
-        String cod_cliente = json.get("cod_cliente");
+        String cod_vendas = json.get("cod_vendas");
+        String qnt_itens = json.get("qnt_itens");
+        String vlr_compra = json.get("vlr_compra");
 
         try{
 
-            String updateQuery = "UPDATE public.\"Cliente\" SET \"Nome\"=\'" + nome +"\',\"Email\" = \'" + email +"\', \"Idade\" = " + idade+" WHERE \"Cod_Cliente\"=\'"+ cod_cliente+ "\';";
+            String updateQuery = "UPDATE public.\"Vendas\" SET \"Qnt_Itens\"=\'" + qnt_itens +"\',\"Vlr_Compra\" = \'" + vlr_compra +" WHERE \"Cod_Vendas\"=\'"+ cod_vendas+ "\';";
             System.out.println("Update Query: " + updateQuery);
             DatabaseConnection.makeQuery(0,updateQuery);
             return true;
