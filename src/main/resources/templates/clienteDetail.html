@@ -334,7 +334,7 @@
 			var clientCode = document.querySelector("input[id='clientCod']").value;
 
 			var clientData = '{"id":"' +clientCode+'"}';
-			console.log(leadData); 
+			console.log(clientCode); 
 
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -344,7 +344,7 @@
 			};
 			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/deleteCliente", true);
 			xhttp.setRequestHeader("Content-Type", "application/json");
-			xhttp.send(leadData);
+			xhttp.send(clientCode);
 
 
 		}
