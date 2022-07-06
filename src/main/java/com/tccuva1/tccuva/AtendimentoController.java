@@ -116,7 +116,7 @@ public class AtendimentoController {
 
         try{
 
-            String updateQuery = "UPDATE public.\"Atendimento\" SET \"Tipo_Atendimento\"=" + tipo_atendimento +",\"Comentario\" = " + comentario +",\"Status\" = \'" +status +"\' WHERE \"Cod_Atendimento\"=\'"+ cod_atendimento+ "\';";
+            String updateQuery = "UPDATE public.\"Atendimento\" SET \"Tipo_Atendimento\"=\'" + tipo_atendimento +"\',\"Comentario\" = \'" + comentario +"\',\"Status\" = \'" +status +"\' WHERE \"Cod_Atendimento\"=\'"+ cod_atendimento+ "\';";
             System.out.println("Update Query: " + updateQuery);
             DatabaseConnection.makeQuery(0,updateQuery);
             return true;
