@@ -238,8 +238,7 @@
 								<div class="form-group">
 									<label for="exampleInputPassword1">Tipo de Atendimento</label>
 									<select class="form-control" id="atendimentoTipo" >
-										<option selected value="">Escolha uma Opção</option>
-										<option value="Telefone">Informativo</option>
+										<option selected value="Telefone">Informativo</option>
 										<option value="Web">Reclamação</option>
 										<option value="Email">Ouvidoria</option>
 										<option value="Outros">Outros</option>
@@ -276,25 +275,30 @@
 		  	var atendimentoComentario = document.querySelector("textarea[id='atendimentoComentario']").value;
 			var atendimentoStatus = document.querySelector("select[id='atendimentoStatus']").value;
 
-			var url = window.location.href;
-			const lastSegment = url.split("/").pop();
-			console.log('Url: ' + lastSegment);
-
-			var atendimentoCodCliente = lastSegment;
-			
-			var atendimentoData = '{"atendimentoTipo":"' + atendimentoTipo + '", "atendimentoComentario":"'+ atendimentoComentario + '", "atendimentoStatus": "' + atendimentoStatus+'", "atendimentoCodCliente": "'+atendimentoCodCliente+'"}';
-			console.log(atendimentoData);
-
-			
-			var xhttp = new XMLHttpRequest();
-		  	xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/clienteDetail/"+atendimentoCodCliente);
+			if(atendimentoComentario ==''){
+				alert('Por favor, preencha o campo de Comentário.');
+			} else{
+				var url = window.location.href;
+				const lastSegment = url.split("/").pop();
+				console.log('Url: ' + lastSegment);
+	
+				var atendimentoCodCliente = lastSegment;
+				
+				var atendimentoData = '{"atendimentoTipo":"' + atendimentoTipo + '", "atendimentoComentario":"'+ atendimentoComentario + '", "atendimentoStatus": "' + atendimentoStatus+'", "atendimentoCodCliente": "'+atendimentoCodCliente+'"}';
+				console.log(atendimentoData);
+	
+				
+				var xhttp = new XMLHttpRequest();
+				  xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/clienteDetail/"+atendimentoCodCliente);
+				}
+				};
+				xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/createAtendimento", true);
+				xhttp.setRequestHeader("Content-Type", "application/json");
+				xhttp.send(atendimentoData);
 			}
-			};
-			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/createAtendimento", true);
-			xhttp.setRequestHeader("Content-Type", "application/json");
-			xhttp.send(atendimentoData);
+			
 
 		}
 
