@@ -132,7 +132,7 @@ public class VendaController {
 
         try{
 
-            String updateQuery = "UPDATE public.\"Vendas\" SET \"Qnt_Itens\"=\'" + qnt_itens +"\',\"Vlr_Compra\" = \'" + vlr_compra +" WHERE \"Cod_Vendas\"=\'"+ cod_vendas+ "\';";
+            String updateQuery = "UPDATE public.\"Vendas\" SET \"Qnt_Itens\"=" + qnt_itens +",\"Vlr_Compra\" = " + vlr_compra +" WHERE \"Cod_Vendas\"=\'"+ cod_vendas+ "\';";
             System.out.println("Update Query: " + updateQuery);
             DatabaseConnection.makeQuery(0,updateQuery);
             return true;
