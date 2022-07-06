@@ -306,12 +306,9 @@
 
 			if(vendaVlr == ''){
 				alert('Por favor, preencha o campo Valor da Venda.');
-			} else if(reg.test(vendaVlr)){
-				alert('Por favor, o campo Valor da Venda deve ser númerico.');
+			
 			} else if(vendaQtdItems == ''){
 				alert('Por favor, preencha o campo Quantidade de Itens.');
-			} else if(reg.test(vendaQtdItems)){
-				alert('Por favor, o campo Quantidade de Itens deve ser númerico.');
 			} else{
 				var url = window.location.href;
 				const lastSegment = url.split("/").pop();
