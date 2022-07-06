@@ -299,9 +299,7 @@
 		}
 
 		function criarVendas(){
-			var vendaVlr = document.querySelector("input[id='vendaVlrCompra']").value;
-			vendaVlr = parseFloat(vendaVlr).toFixed(2);
-			console.log('Fixed: ' +vendaVlr );
+			var vendaVlr = parseFloat(document.querySelector("input[id='vendaVlrCompra']").value).toFixed(2);;
 		  	var vendaQtdItems = document.querySelector("input[id='vendaQtdItems']").value;
 
 			var url = window.location.href;
