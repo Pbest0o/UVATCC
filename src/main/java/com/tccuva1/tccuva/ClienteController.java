@@ -88,5 +88,22 @@ public class ClienteController {
 
     }
 
+
+    @PostMapping("/deleteCliente")
+    @ResponseBody
+    public static void deleteCliente(@RequestBody Map <String,String> json){
+
+        String id = json.get("id");
+
+        try{
+            String deleteQuery = "DELETE FROM public.\"Cliente\" WHERE \"Cod_Cliente\" = \'"+id+"';";
+            System.out.println("Delete Query: " + deleteQuery);
+            DatabaseConnection.makeQuery(0,deleteQuery);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
     
 }
