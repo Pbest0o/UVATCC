@@ -236,8 +236,17 @@
 							<form action="#" method="post">
 								
 								<div class="form-group">
+									<select class="form-select form-select-sm" id="atendimentoTipo" >
+										<option selected value="">Escolha uma Opção</option>
+										<option value="Telefone">Informativo</option>
+										<option value="Web">Reclamação</option>
+										<option value="Email">Ouvidoria</option>
+										<option value="Outros">Outros</option>
+									  </select>
+									  <!--
 								  <label for="exampleInputPassword1">Tipo de Atendimento</label>
 								  <input type="text" class="form-control" id="atendimentoTipo" >
+								  -->
 								</div>
 								
 								<div class="form-group">
@@ -245,8 +254,16 @@
 									<input type="text" class="form-control" id="atendimentoComentario">
 								  </div>
 								  <div class="form-group">
+									<select class="form-select form-select-sm" id="atendimentoStatus" >
+										<option selected value="">Escolha uma Opção</option>
+										<option value="Telefone">Aberto</option>
+										<option value="Web">Em Tratativa</option>
+										<option value="Email">Finalizado</option>
+									  </select>
+									  <!--
 									<label for="exampleInputPassword1">Status</label>
 									<input type="text" class="form-control" id="atendimentoStatus">
+									-->
 								  </div>
 								
 								  <button type="button" class="btn btn-info" onclick="criarAtendimento()">Salvar</button>
