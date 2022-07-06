@@ -148,7 +148,7 @@ public class LeadController {
         Lead lead = LeadController.getLead(id);
         try{
             String convertQuery1 = "UPDATE public.\"Lead\" SET \"Convertido\"= true WHERE \"Cod_Lead\" = \'"+id+"';";
-            String convertQuery2 = "INSERT INTO public.\"Cliente\"(\"Cod_Lead\", \"Nome\", \"Email\", \"Idade\") VALUES ("+ id +", \'" +lead.name  +"\', \'" + lead.email +"\', " +Integer.valueOf(lead.idade)+") ;";
+            String convertQuery2 = "INSERT INTO public.\"Cliente\"(\"Cod_Lead\", \"Nome\", \"Email\", \"Idade\", \"Data_Criacao\") VALUES ("+ id +", \'" +lead.name  +"\', \'" + lead.email +"\', " +Integer.valueOf(lead.idade)+", current_timestamp) ;";
             System.out.println("Convert Query 1: " + convertQuery1);
             System.out.println("Convert Query 2: " + convertQuery2);
 
