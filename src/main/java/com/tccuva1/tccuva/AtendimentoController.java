@@ -120,5 +120,26 @@ public class AtendimentoController {
 
     }
 
+
+    @PostMapping("/deleteVenda")
+    @ResponseBody
+    public static boolean deleteCliente(@RequestBody Map <String,String> json){
+
+        String id = json.get("id");
+
+        try{
+            String deleteQueryVenda = "DELETE FROM public.\"Atendimento\" WHERE \"Cod_Atendimento\" = \'"+id+"';";
+            
+            System.out.println("Delete Query: " + deleteQueryVenda);
+            DatabaseConnection.makeQuery(0,deleteQueryVenda);
+            
+            return true;
+        } catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
     
 }
