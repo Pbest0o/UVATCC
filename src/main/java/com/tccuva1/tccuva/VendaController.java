@@ -122,9 +122,9 @@ public class VendaController {
         }
     }
 
-    @PostMapping("/updateCliente")
+    @PostMapping("/updateVenda")
     @ResponseBody
-    public static Boolean updateCliente(@RequestBody Map <String,String> json){
+    public static Boolean updateVenda(@RequestBody Map <String,String> json){
 
         String nome = json.get("nome");
         String email = json.get("email");
