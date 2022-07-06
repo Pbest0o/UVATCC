@@ -67,6 +67,8 @@ public class VendaController {
         String vendaVlr = json.get("vendaVlr");
         String vendaQtnItems = json.get("vendaQtdItems");
         String vendaCodCliente = json.get("vendaCodCliente");
+
+        System.out.println("Valor venda: " + vendaVlr);
         
         Venda dbVenda = null;
 
