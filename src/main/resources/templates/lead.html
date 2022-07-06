@@ -152,6 +152,10 @@
 		  var leadIdade = document.querySelector("input[id='leadIdade']").value;
 		  var leadCanal = document.querySelector("input[id='leadCanal']").value;
 
+		  if(leadIdade == ''){
+			alert('Por favor, preencha a idade');
+		  }
+
 		  var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'"}';
 		  console.log(leadData); 
 
