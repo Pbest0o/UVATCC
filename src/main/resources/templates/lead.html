@@ -163,7 +163,7 @@
 
 		  if(leadName == ''){
 			alert('Por favor, preencha o Nome do Lead.');
-		  } else if(isNaN(leadIdade)){
+		  } else if(leadIdade == ''){
 			alert('Por favor, preencha a Idade do Lead.');
 		  } else {
 			var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'"}';
