@@ -205,7 +205,7 @@
 					<form action="#" method="post">
 						
 						<div class="form-group">
-						  <label for="exampleInputPassword1">Valor da Venda</label>
+						  <label for="exampleInputPassword1">Valor da Venda (R$)</label>
 						  <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" id="vendaVlrCompra"/>
 						  <!--<input type="text" class="form-control" id="vendaVlrCompra" >-->
 						</div>
@@ -305,9 +305,9 @@
 			var reg = new RegExp('^[0-9]*$');
 
 			if(vendaVlr == ''){
-				alert('Por favor, preencha o campo Valor de Venda.');
+				alert('Por favor, preencha o campo Valor da Venda.');
 			} else if(reg.test(vendaVlr)){
-				alert('Por favor, o campo Valor de Venda deve ser númerico.');
+				alert('Por favor, o campo Valor da Venda deve ser númerico.');
 			} else if(vendaQtdItems == ''){
 				alert('Por favor, preencha o campo Quantidade de Itens.');
 			} else if(reg.test(vendaQtdItems)){
