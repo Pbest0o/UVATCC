@@ -130,7 +130,7 @@
 					  </div>
 					  <div class="form-group">
 						<label for="exampleInputPassword1">Idade</label>
-						<input type="text" class="form-control" id="leadIdade" placeholder="" th:field="${lead.idade}" required>
+						<input type="number" class="form-control" id="leadIdade" placeholder="" step="1" >
 					  </div>
 					  <div class="form-group">
 						<label for="exampleInputPassword1">Canal</label>
@@ -163,11 +163,9 @@
 
 		  if(leadName == ''){
 			alert('Por favor, preencha o Nome do Lead.');
-		  } else if(leadIdade == ''){
+		  } else if(isNaN(leadIdade)){
 			alert('Por favor, preencha a Idade do Lead.');
-		  } else if(reg.test(leadIdade) == false){
-			alert('O campo Idade do Lead deve ser numérico.');
-		 	}else {
+		  } else {
 			var leadData = '{"nome":"' + leadName + '", "email":"'+ leadEmail + '", "idade": "' + leadIdade + '", "canal":"'+ leadCanal +'"}';
 			console.log(leadData); 
 
