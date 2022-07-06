@@ -339,10 +339,10 @@
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
-					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/lead");
+					window.location.replace("https://pedro-martire-uva-tcc.herokuapp.com/cliente");
 				}
 			};
-			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/deleteLead", true);
+			xhttp.open("POST", "https://pedro-martire-uva-tcc.herokuapp.com/deleteCliente", true);
 			xhttp.setRequestHeader("Content-Type", "application/json");
 			xhttp.send(leadData);
 
